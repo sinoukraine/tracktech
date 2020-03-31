@@ -333,6 +333,7 @@ const app = new Framework7({
             return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
         },
         getPlusInfo: function () {
+            let self = this;
             let uid = this.methods.guid();
             if (window.device) {
                 if (!localStorage.PUSH_MOBILE_TOKEN) {
@@ -340,7 +341,7 @@ const app = new Framework7({
                 }
                 localStorage.PUSH_APP_KEY = BuildInfo.packageName;
                 localStorage.PUSH_APPID_ID = BuildInfo.packageName;
-                localStorage.DEVICE_TYPE = device.platform;
+                localStorage.DEVICE_TYPE = self.device.ios ? 'ios' : 'android';
             } else {
                 if (!localStorage.PUSH_MOBILE_TOKEN)
                     localStorage.PUSH_MOBILE_TOKEN = uid;
@@ -436,6 +437,9 @@ const app = new Framework7({
             self.request.promise.get(API_URL.LOGIN, data, 'json')
                 .then(function (result) {
                     if(result.data && result.data.MajorCode === '000') {
+                        if (result.data.Data.elemRc) {
+                            localStorage.elemRc = 1;
+                        }
                         if(account.val()) {
                             localStorage.ACCOUNT = account.val().trim().toLowerCase();
                             localStorage.PASSWORD = password.val();
@@ -2529,7 +2533,7 @@ const app = new Framework7({
                     }
                 }
 
-                if (device && device.platform && device.platform.toLowerCase() === 'ios') {
+                if (self.device && self.device && self.device.ios) {
                     push.finish(
                         () => {
                             console.log('processing of push data is finished');
