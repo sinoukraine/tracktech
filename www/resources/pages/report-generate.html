@@ -322,6 +322,8 @@
                         if(result.data.MajorCode === '000' && result.data.Data.Success) {
                             self.$app.methods.customNotification({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG095});
                             mainView.router.back();
+                        }else if(result.data.MajorCode === '1010'){
+                            self.$app.methods.customDialog({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG110});
                         }else{
                             self.$app.dialog.alert(LANGUAGE.PROMPT_MSG023 + `<br>MajorCode: ${result.data.MajorCode}<br>MinorCode: ${result.data.MinorCode}<br>${result.data.Data}`);
                         }
@@ -499,25 +501,20 @@
                             break;
 
                     }
-                    //if(self.ReportType === '1' || self.ReportType === '2' || self.ReportType === '3' || self.ReportType === '4' || self.ReportType === '5'){
-                        //self.generateReport(data, url);
-                    /*}else{
-                        self.$app.methods.customDialog({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG107});
-                    }*/
-                    if (self.ReportType === '4'){
+
+                    self.generateReport(data, url);
+                    /*if (self.ReportType === '4'){
                         self.$app.methods.customDialog({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG107});
                     }else{
                         self.generateReport(data, url);
-                    }
+                    }*/
 
                     return false;
                 });
-                /*if(self.ReportType !== '1' && self.ReportType !== '2' && self.ReportType !== '3' && self.ReportType !== '4' && self.ReportType !== '5'){
+
+                /*if (self.ReportType === '4'){
                     self.$app.methods.customDialog({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG107});
                 }*/
-                if (self.ReportType === '4'){
-                    self.$app.methods.customDialog({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG107});
-                }
             },
             pageBeforeRemove: function () {
                 let self = this;

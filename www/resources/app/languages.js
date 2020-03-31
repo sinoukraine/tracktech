@@ -221,6 +221,7 @@ window.LanguagePackages= {
 		"PROMPT_MSG107": "This report under development",
 		"PROMPT_MSG108": "Alarm activation and notifications utilise credits. Ignition On and Off alarms may drain credits rapidly",
 		"PROMPT_MSG109": "Important Alarm Notice",
+		"PROMPT_MSG110": "Please wait when previous report request will be finished",
 
 		"HOME_MSG00": "Home",
 		"HOME_MSG01": "All",
