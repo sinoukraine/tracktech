@@ -5,9 +5,9 @@
   ios-CFBundleVersion="7"
   id="com.quiktrak.plus"
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" defaultlocale="en-US" >
-    <name>QuikTrak</name>
+    <name>QuikTrak+</name>
     <description>
-       QuikTrak GPS tracker
+       QuikTrak+ GPS tracker
     </description>
     <author email="support@sinopacific.co" href="http://sinopacific.co">
        Sinopacific Co Limited
@@ -46,6 +46,15 @@
     <preference name="StatusBarStyle" value="blacktranslucent" />
     <preference name="phonegap-version" value="cli-9.0.0" />
     <!-- <preference name="Fullscreen" value="true" /> -->
+    <platform name="ios">
+        <preference name="WKWebViewOnly" value="true" />
+
+        <feature name="CDVWKWebViewEngine">
+            <param name="ios-package" value="CDVWKWebViewEngine" />
+        </feature>
+
+        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    </platform>
 
     <preference name="android-build-tool" value="gradle" />
     <!-- <plugin name="phonegap-plugin-push" source="npm" spec="2.1.2"> -->
@@ -70,8 +79,7 @@
     <plugin spec="https://github.com/phonegap/phonegap-mobile-accessibility.git" source="git" />
     <plugin name="cordova-launch-review" source="npm" spec="3.1.1" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" spec="3.0.0"  />
-    <!-- <plugin name="cordova-plugin-crosswalk-webview-v3" source="npm" spec="3.0.2"  /> -->
-
+    <plugin name="cordova-plugin-wkwebview-engine" source="npm" spec="1.2.1"  />
     
     
 
