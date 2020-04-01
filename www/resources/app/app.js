@@ -102,8 +102,8 @@ $$('#app').append(compiledTemplate());
 
 // Init App
 const app = new Framework7({
-    id: 'com.quiktrak.plus',
-    name: 'QuikTrak',
+    id: 'com.quiktrak.pro',
+    name: 'QuikTrak Pro',
     root: '#app',
     theme: Framework7.device.ios ? 'ios' : 'md',
     view: {
@@ -170,11 +170,11 @@ const app = new Framework7({
                 },
             },
             AppDetails: {
-                name: 'QuikTrak-app',
+                name: 'QuikTrak-Pro-app',
                 code: 23,
                 supportCode: 3,
                 appId: '',
-                appleId: '1499798246',
+                appleId: '1505742400',
                 appVersion: '',
                 supportPhone: '1300885461',
             },

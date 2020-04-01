@@ -3,11 +3,12 @@
   version="1.0.0"
   android-versionCode="9"
   ios-CFBundleVersion="9"
-  id="com.quiktrak.plus"
+  id="com.quiktrak.pro"
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" defaultlocale="en-US" >
-    <name>QuikTrak</name>
+  <!-- id="com.quiktrak.plus" -->
+    <name>QuikTrak Pro</name>
     <description>
-       QuikTrak GPS tracker
+       QuikTrak Pro GPS tracker
     </description>
     <author email="support@sinopacific.co" href="http://sinopacific.co">
        Sinopacific Co Limited
@@ -34,6 +35,7 @@
   	  </edit-config>
   	</platform>
 
+	<preference name="android-build-tool" value="gradle" />
     <preference name="loadUrlTimeoutValue" value="700000" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="Orientation" value="portrait" />
@@ -57,8 +59,7 @@
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     </platform> -->
 
-    <preference name="android-build-tool" value="gradle" />
-    <!-- <plugin name="phonegap-plugin-push" source="npm" spec="2.1.2"> -->
+       
     <plugin name="phonegap-plugin-push" source="npm" spec="2.3.0">
         <variable name="SENDER_ID" value="1097482483564" />
     </plugin>

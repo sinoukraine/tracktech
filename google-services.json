@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -68,10 +68,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -104,10 +104,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -140,10 +140,46 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097482483564:android:fef9490b7a6731818d2549",
+        "android_client_info": {
+          "package_name": "com.quiktrak.pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhjlBAHlTG35_oOSom77Oci0LMJsgoEZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -176,10 +212,46 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097482483564:android:43bfa844ef1280d48d2549",
+        "android_client_info": {
+          "package_name": "com.sinopacific.cube"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhjlBAHlTG35_oOSom77Oci0LMJsgoEZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -212,10 +284,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -248,10 +320,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -284,10 +356,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -320,10 +392,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -356,10 +428,82 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097482483564:android:70da5f614625aa0e8d2549",
+        "android_client_info": {
+          "package_name": "com.sinopacific.qtrak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhjlBAHlTG35_oOSom77Oci0LMJsgoEZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sinopacific.witigps"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097482483564:android:0d81b883591033218d2549",
+        "android_client_info": {
+          "package_name": "com.sinopacific.witigps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhjlBAHlTG35_oOSom77Oci0LMJsgoEZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097482483564-mt5mtgj811opr3rgev6si0ci7079rvsd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
@@ -392,10 +536,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1097482483564-9hhr5jfvae5arqtfmqi15msetretkepl.apps.googleusercontent.com",
+              "client_id": "1097482483564-q407rsdtjepbrf3lm6a8qic0cobcqsl5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.quiktrak.new"
+                "bundle_id": "com.sinopacific.witigps"
               }
             }
           ]
