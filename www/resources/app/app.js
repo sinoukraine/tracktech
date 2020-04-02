@@ -2478,7 +2478,7 @@ const app = new Framework7({
             push = PushNotification.init({
                 "android": {
                     //"senderID": "264121929701"
-                    icon: 'push-notification',
+                    icon: 'notification',
                     //iconColor: 'blue'
                 },
                 "browser": {
