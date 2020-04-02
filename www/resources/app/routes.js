@@ -32,7 +32,7 @@ var routes = [
     },
     {
         path: '/asset-protect/',
-        componentUrl: './resources/pages/asset-protect.html?v=1.3',
+        componentUrl: './resources/pages/asset-protect.html?v=1.4',
         name: 'asset-protect',
         options: {
             transition: 'f7-cover',

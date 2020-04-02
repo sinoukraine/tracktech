@@ -340,6 +340,7 @@
                     self.loadAlarmList({
                         AlarmListType: AlarmListType,
                         AssetType: assetList[imeiArr[0]] ? assetList[imeiArr[0]].AssetType : '',
+                        SolutionType : assetList[imeiArr[0]] ? assetList[imeiArr[0]].SolutionType : '',
                         AlarmOptions: 0,
                     });
                 }else{
@@ -362,6 +363,7 @@
                                         self.loadAlarmList({
                                             AlarmListType: 2, //live
                                             AssetType: asset.AssetType,
+                                            SolutionType: asset.SolutionType,
                                             AlarmOptions: result.data.Data.AlertTypes,
 
                                             LiveAssetSettings: result.data.Data,
@@ -370,6 +372,7 @@
                                         self.loadAlarmList({
                                             AlarmListType: 2,    //live
                                             AssetType: asset.AssetType,
+                                            SolutionType: asset.SolutionType,
                                             AlarmOptions: asset.AlarmOptions,
                                         });
                                     }
@@ -388,6 +391,7 @@
                             self.loadAlarmList({
                                 AlarmListType: 3,
                                 AssetType: asset.AssetType,
+                                SolutionType: asset.SolutionType,
                                 AlarmOptions: asset.AlarmOptions,
 
                             });
@@ -395,6 +399,7 @@
                             self.loadAlarmList({
                                 AlarmListType: 1,     //protect
                                 AssetType: asset.AssetType,
+                                SolutionType: asset.SolutionType,
                                 AlarmOptions: asset.AlarmOptions,
                             });
                         }
@@ -407,7 +412,7 @@
                 let self = this;
 
                 if (data && data.AlarmListType) {
-                    let alarmList = self.getAlarmListByType(data.AlarmListType, data.AssetType);
+                    let alarmList = self.getAlarmListByType(data.AlarmListType, data.AssetType, data.SolutionType);
 
                     for (let i = alarmList.length - 1; i >= 0; i--) {
                         if (data.AlarmOptions & alarmList[i].val) {
@@ -606,7 +611,7 @@
                     }
                 }
             },
-            getAlarmListByType: function(type, assetType){
+            getAlarmListByType: function(type, assetType, solutionType){
                 let self = this;
                 let ret = [];
                 if (type) {
@@ -844,6 +849,34 @@
                                         title: LANGUAGE.ASSET_ALARM_MSG05, //geolock
                                     },
                                 ]
+                            }else if(solutionType && solutionType.toLowerCase() === 'witiprotect'){
+                                ret = [
+                                    {
+                                        state: true,
+                                        val: 131072,
+                                        title: LANGUAGE.ASSET_ALARM_MSG39, //negative input,  witi alarm
+                                    },
+                                    {
+                                        state: true,
+                                        val: 1024,
+                                        title: LANGUAGE.ASSET_ALARM_MSG05, //geolock
+                                    },
+                                    {
+                                        state: true,
+                                        val: 16384,
+                                        title: LANGUAGE.ASSET_ALARM_MSG08, //impact
+                                    },
+                                    {
+                                        state: true,
+                                        val: 512,
+                                        title: LANGUAGE.ASSET_ALARM_MSG17, //lowBattery
+                                    },
+                                    {
+                                        state: true,
+                                        val: 4,
+                                        title: LANGUAGE.ASSET_ALARM_MSG09, //power
+                                    },
+                                ];
                             }else{
                                 ret = [
                                     {

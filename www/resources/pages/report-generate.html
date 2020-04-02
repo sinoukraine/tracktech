@@ -323,7 +323,7 @@
                             self.$app.methods.customNotification({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG095});
                             mainView.router.back();
                         }else if(result.data.MajorCode === '1010'){
-                            self.$app.methods.customDialog({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG110});
+                            self.$app.methods.customDialog({title: self.PageTitle, text: LANGUAGE.PROMPT_MSG111});
                         }else{
                             self.$app.dialog.alert(LANGUAGE.PROMPT_MSG023 + `<br>MajorCode: ${result.data.MajorCode}<br>MinorCode: ${result.data.MinorCode}<br>${result.data.Data}`);
                         }

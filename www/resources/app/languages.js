@@ -106,6 +106,10 @@ window.LanguagePackages= {
 		"COM_MSG100": "Refer a Friend",
 		"COM_MSG101": "Custom Email",
 		"COM_MSG102": "Mins",
+		"COM_MSG103": "Arm",
+		"COM_MSG104": "Disarm",
+		"COM_MSG105": "Armed",
+		"COM_MSG106": "Disarmed",
 
 		"PROMPT_MSG000": "Nothing found",
 		"PROMPT_MSG001": "The login(email) or password you entered is incorrect.",
@@ -221,7 +225,9 @@ window.LanguagePackages= {
 		"PROMPT_MSG107": "This report under development",
 		"PROMPT_MSG108": "Alarm activation and notifications utilise credits. Ignition On and Off alarms may drain credits rapidly",
 		"PROMPT_MSG109": "Important Alarm Notice",
-		"PROMPT_MSG110": "Please wait when previous report request will be finished",
+
+		"PROMPT_MSG110": "Remotely Arm / Disarm your WiTi alarm.",
+		"PROMPT_MSG111": "Please wait when previous report request will be finished",
 
 		"HOME_MSG00": "Home",
 		"HOME_MSG01": "All",
@@ -357,6 +363,10 @@ window.LanguagePackages= {
 		"ASSET_ALARM_MSG35": "Positive Input Off",
 		"ASSET_ALARM_MSG36": "Other Alarm",
 		"ASSET_ALARM_MSG37": "Outboard Engine Removal",
+		"ASSET_ALARM_MSG38": "PTO Input",
+		"ASSET_ALARM_MSG39": "WiTi Alarm",
+		"ASSET_ALARM_MSG40": "PTO Input On",
+		"ASSET_ALARM_MSG41": "PTO Input Off",
 
 		"GEOFENCES_MSG00": "Circle",
 		"GEOFENCES_MSG01": "Polygon",
@@ -378,6 +388,7 @@ window.LanguagePackages= {
 		"ASSET_STATUS_LIVE_MSG05": "Immobilisation",
 		"ASSET_STATUS_LIVE_MSG06": "Lock Door",
 		"ASSET_STATUS_LIVE_MSG07": "Report Theft",
+		"ASSET_STATUS_LIVE_MSG08": "WiTi",
 
 		"REPORT_THEFT_MSG00": "Please follow the below steps when reporting your stolen asset.",
 		"REPORT_THEFT_MSG01": "1. Contact police to report the incident. You will be provided with an incident report number.",
@@ -471,6 +482,7 @@ window.LanguagePackages= {
 
 		"ASSET_PROTECT_MSG00": "Position",
 		"ASSET_PROTECT_MSG01": "Upgrade to Live",
+		"ASSET_PROTECT_MSG02": "Alarm Settings",
 
 		"ALARM_LOG_MSG00": "Alarm Log",
 
