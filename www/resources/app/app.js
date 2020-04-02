@@ -2478,6 +2478,8 @@ const app = new Framework7({
             push = PushNotification.init({
                 "android": {
                     //"senderID": "264121929701"
+                    icon: 'push-notification',
+                    //iconColor: 'blue'
                 },
                 "browser": {
                     pushServiceURL: 'https://push.api.phonegap.com/v1/push'

@@ -106,6 +106,8 @@
         <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
         <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
         <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
+
+  		<resource-file src="www/res/icon/android/push-notification.png" target="app/src/main/res/drawable/push-notification.png" />
         
         <splash density="port-ldpi" src="www/res/screen/android/drawable-port-ldpi-screen.png" />
         <splash density="port-mdpi" src="www/res/screen/android/drawable-port-mdpi-screen.png" />
