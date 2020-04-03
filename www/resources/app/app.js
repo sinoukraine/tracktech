@@ -361,7 +361,8 @@ const app = new Framework7({
             let mobileToken = localStorage.PUSH_MOBILE_TOKEN;
             let notifications = self.methods.getFromStorage('notifications');
             let mapSettings = self.methods.getFromStorage('mapSettings');
-            let elemRc = localStorage.elemRc;
+            //let elemRc = localStorage.elemRc;
+            let additionalFlags = self.methods.getFromStorage('additionalFlags');
 
             localStorage.clear();
             POSINFOASSETLIST = {};
@@ -379,8 +380,11 @@ const app = new Framework7({
             if (mobileToken) {
                 localStorage.PUSH_MOBILE_TOKEN = mobileToken;
             }
-            if(elemRc){
+            /*if(elemRc){
                 localStorage.elemRc = elemRc;
+            }*/
+            if(!self.methods.isObjEmpty(additionalFlags)){
+                self.methods.setInStorage({ name: 'additionalFlags', data: additionalFlags });
             }
 
             if (UpdateAssetsPosInfoTimer) {
@@ -442,7 +446,7 @@ const app = new Framework7({
                 .then(function (result) {
                     if(result.data && result.data.MajorCode === '000') {
                         if (result.data.Data.elemRc) {
-                            localStorage.elemRc = 1;
+                            self.methods.setInStorage({name:'additionalFlags', data: {elemRc: true}});
                         }
                         if(account.val()) {
                             localStorage.ACCOUNT = account.val().trim().toLowerCase();
@@ -561,6 +565,7 @@ const app = new Framework7({
                     if (!update) {
                         self.dialog.close();
                         LoginEvents.emit('signedIn', assetList);
+                        self.methods.afterLogin();
                     }
                     if (callback instanceof Function) {
                         callback();
@@ -575,6 +580,20 @@ const app = new Framework7({
                         self.dialog.alert(LANGUAGE.PROMPT_MSG003);
                     }*/
                 });
+        },
+        afterLogin: function(){
+            let self = this;
+            setTimeout(function() {
+                let additionalFlags = self.methods.getFromStorage('additionalFlags');
+                if(!additionalFlags.modalReview && additionalFlags.firstLoginDone){
+                    self.methods.showAskForReview();
+                }
+
+                if(!additionalFlags.firstLoginDone){
+                    additionalFlags.firstLoginDone = true;
+                }
+                self.methods.setInStorage({name: 'additionalFlags', data: additionalFlags});
+            }, 5000);
         },
         getGeofenceList: function(callback){
             let self = this;
@@ -729,67 +748,14 @@ const app = new Framework7({
                         }
                         break;
 
-                   /* case 'groupList':
-                        str = localStorage.getItem("COM.QUIKTRAK.NEW.GROUPLIST");
-                        if(str) {
-                            ret = JSON.parse(str);
-                        }
-                        break;
-
-                    case 'usersList':
-                        str = localStorage.getItem("COM.QUIKTRAK.NEW.USERSLIST");
-                        if(str) {
-                            ret = JSON.parse(str);
-                        }
-                        break;
-
-
-
-
-
-
-                    case 'intervalRemindersList':
-                        str = localStorage.getItem("COM.QUIKTRAK.NEW.INTERVALREMINDERS");
+                    case 'additionalFlags':
+                        str = localStorage.getItem("COM.QUIKTRAK.NEW.ADDIITIONALFLAGS");
                         if(str) {
                             ret = JSON.parse(str);
                         }else{
                             ret = {};
                         }
                         break;
-
-
-
-
-
-                    case 'reportData':
-                        str = localStorage.getItem("COM.QUIKTRAK.NEW.REPORTDATA");
-                        if(str) {
-                            ret = JSON.parse(str);
-                        }
-                        break;
-
-                    case 'dashboard':
-                        str = localStorage.getItem("COM.QUIKTRAK.NEW.DASHBOARD");
-                        if(str) {
-                            ret = JSON.parse(str);
-                        }else{
-                            ret = {};
-                        }
-                        break;
-
-
-
-
-
-                    case 'scheduledReportList':
-                        str = localStorage.getItem("COM.QUIKTRAK.NEW.SCHEDULEDREPORTS");
-                        if(str) {
-                            ret = JSON.parse(str);
-                        }
-                        break;
-
-                    */
-
 
                     default:
                         self.dialog.alert('There is no item saved with such name - '+name);
@@ -840,45 +806,14 @@ const app = new Framework7({
                     case 'alertList':
                         localStorage.setItem("COM.QUIKTRAK.NEW.ALERTLIST", JSON.stringify(params.data));
                         break;
-                    /*case 'groupList':
-                        localStorage.setItem("COM.QUIKTRAK.NEW.GROUPLIST", JSON.stringify(params.data));
+                    case 'additionalFlags':
+                        let flags = self.methods.getFromStorage(params.name);
+                        const keys = Object.keys(params.data);
+                        for (const key of keys) {
+                            flags[key] = params.data[key];
+                        }
+                        localStorage.setItem("COM.QUIKTRAK.NEW.ADDIITIONALFLAGS", JSON.stringify(flags));
                         break;
-
-
-
-                    case 'usersList':
-                        localStorage.setItem("COM.QUIKTRAK.NEW.USERSLIST", JSON.stringify(params.data));
-                        break;
-
-
-
-                    case 'intervalRemindersList':
-                        localStorage.setItem("COM.QUIKTRAK.NEW.INTERVALREMINDERS", JSON.stringify(params.data));
-                        break;
-
-
-
-
-                    case 'reportData':
-                        localStorage.setItem("COM.QUIKTRAK.NEW.REPORTDATA", JSON.stringify(params.data));
-                        break;
-
-                    case 'dashboard':
-                        localStorage.setItem("COM.QUIKTRAK.NEW.DASHBOARD", JSON.stringify(params.data));
-                        break;
-
-                    case 'solutions':
-                        localStorage.setItem("COM.QUIKTRAK.NEW.SOLUTIONS", JSON.stringify(params.data));
-                        break;
-
-
-
-                    case 'scheduledReportList':
-                        localStorage.setItem("COM.QUIKTRAK.NEW.SCHEDULEDREPORTS", JSON.stringify(params.data));
-                        break;
-
-                   */
-
 
                     default:
                         self.dialog.alert('There is no function associated with this name - '+params.name);
@@ -2397,6 +2332,69 @@ const app = new Framework7({
                         //bold: true,
                         onClick: function () {
                             mainView.router.navigate('/credit-recharge/');
+                        }
+                    },
+                ]
+            }).open();
+        },
+        showAskForReview: function(){
+            let self = this;
+            let appId = '';
+            if (window.device) {
+                var platform = device.platform.toLowerCase();
+                switch (platform) {
+                    case "ios":
+                        appId = self.data.AppDetails.appleId;
+                        break;
+                    case "android":
+                        appId = self.data.AppDetails.appId;
+                        break;
+                }
+            }
+
+            let modalTex = `<div class="custom-modal-text">${ LANGUAGE.PROMPT_MSG112 }</div>
+            <div class="list no-hairlines margin-top-half no-margin-bottom">
+                <ul>
+                    <li>
+                        <label class="item-checkbox item-content color-green no-padding-left">
+                            <input type="checkbox" name="checkbox-not-show-modal-review" value="" />
+                            <i class="icon icon-checkbox"></i>
+                            <div class="item-inner no-padding-right">
+                                <div class="item-title text-color-gray">${ LANGUAGE.PROMPT_MSG113 }</div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>`;
+            self.dialog.create({
+                title: `<div class="custom-modal-logo-wrapper"><img class="custom-modal-logo" src="${ self.data.logoBlack }" alt=""/></div>`,
+                text: modalTex,
+                buttons: [
+                    {
+                        text: LANGUAGE.COM_MSG107,
+                        onClick: function (parent) {
+                            let checkboxState = parent.$el.find('input[name="checkbox-not-show-modal-review"]').is(":checked");
+                            if (checkboxState) {
+                                self.methods.setInStorage({name: 'additionalFlags', data: {modalReview: checkboxState}});
+                            }
+                        }
+                    },
+                    {
+                        text: LANGUAGE.COM_MSG055,
+                        bold: true,
+                        onClick: function (parent) {
+                            let checkboxState = parent.$el.find('input[name="checkbox-not-show-modal-review"]').is(":checked");
+                            if (checkboxState) {
+                                self.methods.setInStorage({name: 'additionalFlags', data: {modalReview: checkboxState}});
+                            }
+
+                            if (LaunchReview) {
+                                LaunchReview.launch(function() {
+                                    console.log("Successfully launched store app");
+                                }, function(err) {
+                                    console.log("Error launching store app: " + err);
+                                }, appId);
+                            }
                         }
                     },
                 ]

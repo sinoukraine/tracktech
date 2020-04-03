@@ -24,7 +24,7 @@
         {{#if ShowPayment}}
         <div class="toolbar toolbar-bottom ">
             <div class="toolbar-inner ">
-                <a href="/asset-upgrade/?imei={{IMEI}}" class="link button width-100 color-white"><i class="f7-icons icon-upgrade-to-live margin-right"></i>{{@global.LANGUAGE.ASSET_PROTECT_MSG01}}</a>
+                <a href="/asset-upgrade/?imei={{IMEI}}" class="link button width-100 color-white "><i class="f7-icons icon-upgrade-to-live margin-right"></i>{{@global.LANGUAGE.ASSET_PROTECT_MSG01}}</a>
             </div>
         </div>
         {{/if}}
@@ -136,6 +136,7 @@
             let imei = decodeURIComponent(self.$route.query.imei);
             let asset = self.$app.methods.getFromStorage('assetList')[imei];
             let assetImg = self.$app.methods.getAssetImg(asset, {'assetEdit':true});
+            let additionalFlags = self.$app.methods.getFromStorage('additionalFlags');
 
             let afs = Protocol.Helper.getAssetStateInfo(POSINFOASSETLIST[imei]);
 
@@ -156,7 +157,7 @@
                 IsWitiSolution: asset.SolutionType.toLowerCase() === 'witiprotect',
             };
 
-            if(self.$app.device.ios && !localStorage.elemRc){
+            if(self.$app.device.ios && !additionalFlags.elemRc){
                 ret.ShowPayment = false;
             }
 
