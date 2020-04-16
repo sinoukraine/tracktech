@@ -323,9 +323,9 @@
 
                 passwordForm.on('submit', function (e) {
                     e.preventDefault();  
-                    var userInfo = self.$app.methods.getFromStorage('userInfo');
+                   // var userInfo = self.$app.methods.getFromStorage('userInfo');
                     var data = {
-                        MinorToken: userInfo.MinorToken,
+                        MinorToken: self.$app.data.MinorToken,
                         oldpwd: page.$el.find('input[name="oldpwd"]').val(),
                         newpwd: page.$el.find('input[name="newpwd"]').val(),
                     }; 

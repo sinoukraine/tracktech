@@ -606,6 +606,8 @@
 }
 .leaflet-popup-content-wrapper{
     border-radius: 6px;
+    max-height: 450px;
+    overflow: auto;
 }
 /*.leaflet-popup-content{
     margin: 18px 24px;

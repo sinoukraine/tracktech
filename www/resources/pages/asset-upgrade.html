@@ -56,13 +56,16 @@
             let userInfo = self.$app.methods.getFromStorage('userInfo');
 
             let params = {
-                imei: decodeURIComponent(self.$route.query.imei),
+                //imei: decodeURIComponent(self.$route.query.imei),
+                imeis: decodeURIComponent(self.$route.query.imei),
                 //ServiceProfile: '',
+                DealerToken: self.$app.data.MajorToken,
                 SolutionType: 'Track',
                 email: userInfo.EMail ? userInfo.EMail.trim() : '',
                 LoginName: localStorage.ACCOUNT ? localStorage.ACCOUNT.trim() : '',
                 Phone: userInfo.Mobile ? userInfo.Mobile.trim() : userInfo.Mobile,
                 CountryCode: userInfo.CountryCode ? userInfo.CountryCode : '',
+                FromApp: 1
             };
 
             ret.Options = [
@@ -70,13 +73,13 @@
                     BgColor: 'bg-color-red',
                     Period: LANGUAGE.COM_MSG071,
                     Price: '$ '+'228.00 ' + LANGUAGE.COM_MSG072 ,
-                    Link: API_URL.URL_UPGRADE + 'activate.php?ServiceProfile=5f87b4fc-d25b-4&' + self.$app.utils.serializeObject(params) ,
+                    Link: API_URL.URL_UPGRADE + 'upgrade-to-live.php?ServiceProfile=5f87b4fc-d25b-4&' + self.$app.utils.serializeObject(params) ,
                 },
                 {
                     BgColor: 'bg-color-green',
                     Period: LANGUAGE.COM_MSG070,
                     Price: '$ '+'19.00 ' + LANGUAGE.COM_MSG072,
-                    Link: API_URL.URL_UPGRADE + 'activate.php?ServiceProfile=33ENPEYR38SRC&' + self.$app.utils.serializeObject(params),
+                    Link: API_URL.URL_UPGRADE + 'upgrade-to-live.php?ServiceProfile=33ENPEYR38SRC&' + self.$app.utils.serializeObject(params),
                 },
 
             ];

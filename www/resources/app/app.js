@@ -181,6 +181,7 @@ const app = new Framework7({
             UTCOFFSET: moment().utcOffset(),
             AccountSolutionArray: [],
             CustomerType: '',
+
         };
     },
     on: {
@@ -367,7 +368,7 @@ const app = new Framework7({
             localStorage.clear();
             POSINFOASSETLIST = {};
 
-            self.methods.unregisterPush();
+            //self.methods.unregisterPush();
             if (notifications) {
                 localStorage.setItem("COM.QUIKTRAK.NEW.NOTIFICATIONS", JSON.stringify(notifications));
             }
