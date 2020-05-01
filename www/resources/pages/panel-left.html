@@ -93,6 +93,16 @@
                             </a>
                         </li>
                         {{/if}}
+
+
+                        <li>
+                            <a href="{{UserGuideURL}}" target="_blank" class="item-link item-content panel-close external">
+                                <div class="item-media text-color-lightgray"><i class="f7-icons icon-menu-manual "></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title">{{@global.LANGUAGE.MENU_MSG11}}</div>
+                                </div>
+                            </a>
+                        </li>
                         <li>
                             <a href="{{SupportUrl}}" target="_blank" class="item-link item-content panel-close external">
                                 <div class="item-media text-color-lightgray"><i class="f7-icons icon-menu-support "></i></div>
@@ -159,6 +169,7 @@
                 Email: userInfo && userInfo.Email ? userInfo.Email : 'test@mail.com',
                 Remaining: userInfo && userInfo.SMSTimes ? userInfo.SMSTimes : '0',
                 SupportUrl: API_URL.URL_SUPPORT + '?' + self.$app.utils.serializeObject(paramsForSupportUrl),
+                UserGuideURL: API_URL.URL_USER_GUIDE,
                 SupportPhone: self.$root.AppDetails.supportPhone,
                 AppVersion: self.$root.AppDetails.appVersion ? 'v'+self.$root.AppDetails.appVersion : '',
                 ToolbarAdditionaClass: '',
