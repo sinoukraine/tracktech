@@ -181,7 +181,8 @@
                 ret.ShowButtonCall = true;
                 ret.ShowButtonReferFriend = true;
             }
-            if(self.$app.device.ios && !additionalFlags.elemRc){
+            //if(self.$app.device.ios && !additionalFlags.elemRc){
+            if(!additionalFlags.elemRc){
                 ret.ShowPayment = false;
                 ret.ToolbarAdditionaClass += ' toolbar-size-4';
             }
