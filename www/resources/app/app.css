@@ -384,6 +384,10 @@
 .dialog .list ul{
     background: transparent;
 }
+.dialog-inner .dialog-text{
+    max-height: 50vh;
+    overflow: auto;
+}
 
 .user-img{
     width: 60px;

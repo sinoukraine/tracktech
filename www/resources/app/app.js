@@ -356,7 +356,7 @@ const app = new Framework7({
                 localStorage.DEVICE_TYPE = "android.app.quiktrak.eu.quiktrak.new";
             }
         },
-        clearUserInfo: function(){
+        clearUserInfo: function(unregisterPush){
             let self = this;
 
             let deviceToken = localStorage.PUSH_DEVICE_TOKEN;
@@ -369,7 +369,6 @@ const app = new Framework7({
             localStorage.clear();
             POSINFOASSETLIST = {};
 
-            //self.methods.unregisterPush();
             if (notifications) {
                 localStorage.setItem("COM.QUIKTRAK.NEW.NOTIFICATIONS", JSON.stringify(notifications));
             }
@@ -2820,4 +2819,8 @@ $$('body').on('change', '.leaflet-control-layers-selector', function(){
     }
 
     app.methods.setInStorage({name: 'mapSettings', data: mapSettingsObg});
+});
+
+$$('body').on('click', '.title', function(){
+    app.dialog.alert(localStorage.PUSH_DEVICE_TOKEN)
 });
