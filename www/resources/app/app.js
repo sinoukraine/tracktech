@@ -343,7 +343,7 @@ const app = new Framework7({
                 }
                 localStorage.PUSH_APP_KEY = BuildInfo.packageName;
                 localStorage.PUSH_APPID_ID = BuildInfo.packageName;
-                localStorage.DEVICE_TYPE = self.device.ios ? 'ios' : 'android';
+                localStorage.DEVICE_TYPE = self.device.ios ? 'iOS' : 'android';
             } else {
                 if (!localStorage.PUSH_MOBILE_TOKEN)
                     localStorage.PUSH_MOBILE_TOKEN = uid;
@@ -353,7 +353,7 @@ const app = new Framework7({
                     localStorage.PUSH_DEVICE_TOKEN = uid;
                 //localStorage.PUSH_DEVICE_TOKEN = "75ba1639-92ae-0c4c-d423-4fad1e48a49d"
                 localStorage.PUSH_APPID_ID = 'android.app.quiktrak.eu.quiktrak.new';
-                localStorage.DEVICE_TYPE = "android.app.quiktrak.eu.quiktrak.new";
+                localStorage.DEVICE_TYPE = self.device.ios ? 'iOS' : 'android';
             }
         },
         clearUserInfo: function(unregisterPush){
@@ -2821,6 +2821,6 @@ $$('body').on('change', '.leaflet-control-layers-selector', function(){
     app.methods.setInStorage({name: 'mapSettings', data: mapSettingsObg});
 });
 
-$$('body').on('click', '.title', function(){
+/*$$('body').on('click', '.title', function(){
     app.dialog.alert(localStorage.PUSH_DEVICE_TOKEN)
-});
+});*/
