@@ -356,7 +356,7 @@ const app = new Framework7({
                 localStorage.DEVICE_TYPE = self.device.ios ? 'iOS' : 'android';
             }
         },
-        clearUserInfo: function(unregisterPush){
+        clearUserInfo: function(){
             let self = this;
 
             let deviceToken = localStorage.PUSH_DEVICE_TOKEN;

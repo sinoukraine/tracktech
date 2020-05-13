@@ -424,7 +424,8 @@
                     boundsArr.push(this.GeofenceFiguresGroup.getBounds())
                 }
                 if(boundsArr.length){
-                    this.Map.flyToBounds(boundsArr, { padding: [8, 8], maxZoom: 15 });
+                    //this.Map.flyToBounds(boundsArr, { padding: [8, 8], maxZoom: 15 });
+                    this.Map.fitBounds(boundsArr, { padding: [8, 8], maxZoom: 15 });
                 }
             },
             saveGeofence: function(data, url){
