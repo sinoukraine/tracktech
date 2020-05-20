@@ -231,6 +231,7 @@ window.LanguagePackages= {
 		"PROMPT_MSG111": "Please wait when previous report request will be finished",
 		"PROMPT_MSG112": "Thanks for using our app. Please take a moment to rate it, and give us feedback so we can improve it for you.",
 		"PROMPT_MSG113": "Do not show again",
+		"PROMPT_MSG114": "That Email address is already registered. Try another, please",
 
 		"HOME_MSG00": "Home",
 		"HOME_MSG01": "All",

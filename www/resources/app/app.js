@@ -218,6 +218,12 @@ const app = new Framework7({
                     StatusBar.styleDefault();
                 }
 
+                if(window.isTablet){
+                    screen.orientation.unlock('any');
+                }else{
+                    screen.orientation.lock('portrait');
+                }
+
                 self.methods.handleAndroidBackButton();
                 self.methods.handleKeyboard();
                 //document.addEventListener("backbutton", self.methods.backFix, false);

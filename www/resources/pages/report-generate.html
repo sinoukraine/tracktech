@@ -276,6 +276,7 @@
             let keys = Object.keys(assetListObj);
             let assetList = [];
             let contactList = self.$app.methods.getFromStorage('contactList');
+            let userInfo = self.$app.methods.getFromStorage('userInfo');
             let overviewOptionsList = Protocol.Helper.getOverviewReportOptions();
 
             for (const key of keys) {
@@ -296,6 +297,13 @@
                 });
             }
 
+            contactList.push({
+                EMail: userInfo.Email,
+                FirstName: userInfo.FirstName,
+                SubName: userInfo.SurName,
+                Code: self.$app.data.MajorToken,
+                CustomerCode: self.$app.data.MinorToken,
+            });
             contactList = self.$app.methods.sortContactList(contactList);
 
             let ret = {

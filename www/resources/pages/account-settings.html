@@ -230,9 +230,12 @@
                             self.$app.utils.extend(userInfo, data);
                             self.$app.methods.setInStorage({name:'userInfo', data: userInfo });
                             mainView.router.back();
+                        }else if(result.data.MajorCode === '100' && result.data.MinorCode === '1002'){
+                            self.$app.dialog.alert(LANGUAGE.PROMPT_MSG114);
                         }else{
                             self.$app.dialog.alert(LANGUAGE.PROMPT_MSG023 + `<br>MajorCode: ${result.data.MajorCode}<br>MinorCode: ${result.data.MinorCode}<br>${result.data.Data}`);
                         }
+
                     })
                     .finally(function () {
                         self.$app.preloader.hide();

@@ -38,7 +38,7 @@
 	<preference name="android-build-tool" value="gradle" />
     <preference name="loadUrlTimeoutValue" value="700000" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="Orientation" value="portrait" />
+    <preference name="Orientation" value="default" />
     <preference name="android-minSdkVersion" value="19" />
     <!-- <preference name="android-maxSdkVersion" value="27" /> -->
     <preference name="android-targetSdkVersion" value="28" />
@@ -82,6 +82,10 @@
     <plugin name="cordova-launch-review" source="npm" spec="3.1.1" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" spec="3.0.0"  />
     <!-- <plugin name="cordova-plugin-wkwebview-engine" source="npm" spec="1.2.1"  /> -->
+    <!-- <plugin name="cordova-plugin-wkwebview-file-xhr" source="npm" spec="2.1.4"  /> -->
+    
+    <plugin name="uk.co.workingedge.phonegap.plugin.istablet" source="npm" spec="1.2.0"  />
+    <plugin name="cordova-plugin-screen-orientation" source="npm" spec="3.0.2"  />
     
     
 
