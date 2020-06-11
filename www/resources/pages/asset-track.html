@@ -107,11 +107,13 @@
             UpdateData: function () {
                 let self = this;
 
+
                 for (let i = 0; i < self.AssetsIMEIs.length; i++) {
                     let asset = POSINFOASSETLIST[self.AssetsIMEIs[i]];
                     if (asset && asset.posInfo && parseFloat(asset.posInfo.lat) !== 0 && parseFloat(asset.posInfo.lng) !== 0){
                         let marker =  self.MarkersGroup.getLayer(asset.markerId);
                         if (marker) {
+                            self.$app.dialog.alert(asset.posInfo.positionTime.format(window.COM_TIMEFORMAT))
                             marker.setLatLng([asset.posInfo.lat, asset.posInfo.lng]).setPopupContent(self.$app.methods.getMarkerDataTable(asset));
                             let popup = marker.getPopup();
                             if (popup.isOpen()) {

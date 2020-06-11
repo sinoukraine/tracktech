@@ -2791,8 +2791,9 @@ $$('body').on('click', '.routeButton', function(){
     let that = $$(this);
     let lat = that.data('lat');
     let lng = that.data('lng');
-    if (lat && lng) {
-        let href = API_URL.URL_ROUTE;
+    if (lat && lng && launchnavigator) {
+        launchnavigator.navigate([lat,lng]);
+        /*let href = API_URL.URL_ROUTE;
         if (app.device.ios){
             href = API_URL.URL_ROUTE_IOS;
         }
@@ -2806,7 +2807,7 @@ $$('body').on('click', '.routeButton', function(){
             } else {
                 window.open(href, '_blank');
             }
-        }
+        }*/
     }
 });
 
