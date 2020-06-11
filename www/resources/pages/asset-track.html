@@ -108,9 +108,13 @@
                 let self = this;
 
                 self.$app.dialog.alert('here')
+
+
                 for (let i = 0; i < self.AssetsIMEIs.length; i++) {
                     let asset = POSINFOASSETLIST[self.AssetsIMEIs[i]];
+                    self.$app.dialog.alert('here1')
                     if (asset && asset.posInfo && parseFloat(asset.posInfo.lat) !== 0 && parseFloat(asset.posInfo.lng) !== 0){
+                        self.$app.dialog.alert('here2')
                         let marker =  self.MarkersGroup.getLayer(asset.markerId);
                         if (marker) {
                             self.$app.dialog.alert(asset.posInfo.positionTime.format(window.COM_TIMEFORMAT))
