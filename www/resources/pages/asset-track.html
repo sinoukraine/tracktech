@@ -107,7 +107,7 @@
             UpdateData: function () {
                 let self = this;
 
-
+                self.$app.dialog.alert('here')
                 for (let i = 0; i < self.AssetsIMEIs.length; i++) {
                     let asset = POSINFOASSETLIST[self.AssetsIMEIs[i]];
                     if (asset && asset.posInfo && parseFloat(asset.posInfo.lat) !== 0 && parseFloat(asset.posInfo.lng) !== 0){
