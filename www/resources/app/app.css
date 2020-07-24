@@ -72,6 +72,9 @@
 .ios .list .item-media{
     min-width: 25px;
 }
+.f7-icons{
+    text-rendering: auto;
+}
 /*.color-theme-custom {
     --f7-theme-color: #E3072B;
     --f7-theme-color-rgb: 227,7,43;
@@ -598,6 +601,9 @@
     min-height: 200px;
 }
 
+.leaflet-tooltip{
+    background: rgba(255,255,255,.75);
+}
 .leaflet-control-layers-toggle{
     background-image: url('../images/change-map.svg') !important;
     background-size: 100% 100% !important;
@@ -919,4 +925,17 @@ html .fab-custom{
 
 .page.smart-select-page .list {
     margin: 0;
+}
+
+.item-right-button{
+    min-width: 40px;
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    align-self: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: var(--f7-list-item-padding-vertical);
+    padding-top: var(--f7-list-item-padding-vertical);
+    padding-right: calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-right));
 }

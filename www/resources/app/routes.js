@@ -198,7 +198,22 @@ var routes = [
             transition: 'f7-cover',
         },
     },
-
+    {
+        path: '/reports-automated-list/',
+        componentUrl: './resources/pages/reports-automated-list.html?v=1.3',
+        name: 'reports-automated-list',
+        options: {
+            transition: 'f7-cover',
+        },
+    },
+    {
+        path: '/reports-automated/',
+        componentUrl: './resources/pages/reports-automated.html?v=1.3',
+        name: 'reports-automated',
+        options: {
+            transition: 'f7-cover',
+        },
+    },
 
 
 

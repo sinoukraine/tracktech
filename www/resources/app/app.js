@@ -17,6 +17,7 @@ const API_URL = {};
 
 API_URL.LOGIN = API_DOMIAN2 + "user/Auth2";
 API_URL.LOGOUT = API_DOMIAN3 + "Logoff";
+//API_URL.LOGOUT = API_DOMIAN1 + "Logoff2";
 API_URL.GET_ALL_POSITIONS = API_DOMIAN1 + "Device/GetPosInfos2";
 API_URL.PHOTO_UPLOAD = API_DOMIAN9 + "image/Upload";
 API_URL.EDIT_DEVICE = API_DOMIAN1 + "Device/Edit";
@@ -36,6 +37,7 @@ API_URL.SEND_COM_STATUS = API_DOMIAN3 + "Status";
 
 API_URL.SET_GEOLOCK = API_DOMIAN2 + "asset/GeoLock";
 API_URL.SET_IMMOBILISATION = API_DOMIAN2 + "asset/Relay";
+API_URL.SET_IMMOBILISATION_NO_PAY = API_DOMIAN2 + "asset/RelayNoPay";
 API_URL.SET_DOORLOCK = API_DOMIAN2 + "asset/door";
 /*API_URL.URL_SET_GEOLOCK_PROTECT = API_DOMIAN3 + "setGeolock";
 API_URL.URL_SET_IMMOBILISATION_PROTECT = API_DOMIAN3 + "Relay";*/
@@ -68,12 +70,15 @@ API_URL.GET_ADDRESSES_FROM_ARRAY = API_DOMIAN5 + "geocode/reverse/v1/";
 API_URL.GET_SPEEDLIMIT = API_DOMIAN5 + "speedlimits/v1";
 API_URL.GET_PLAYBACK_REPORT_ON_MAIL = API_DOMIAN6 + "api/v2/reports/Playback";
 
-
 API_URL.GET_REPORT_ALERTLIST = API_DOMIAN1 + "Report/GetAlertList";
 API_URL.GET_REPORT_TRIP = API_DOMIAN1 + "Report/GetTripReport";
 API_URL.GET_REPORT_OVERVIEW = API_DOMIAN1 + "Report/GetOverview";
 API_URL.GET_REPORT_BY_ALERT = API_DOMIAN1 + "Report/GetAlertReportData";
 API_URL.GET_REPORT_BY_EVENT = API_DOMIAN1 + "Report/GetEventReport";
+
+API_URL.GET_AUTOMATED_REPORT_LIST = API_DOMIAN1 + "Device/GetLogBookList";
+API_URL.AUTOMATED_REPORT_EDIT = API_DOMIAN1 + "Device/UpdateLogBook";
+API_URL.AUTOMATED_REPORT_DELETE = API_DOMIAN1 + "Device/DeleteLogBook";
 
 
 //let VirtualAssetListMain = false;
@@ -330,6 +335,10 @@ const app = new Framework7({
             }
             return ret;
         },
+        validateEmail: function(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
         hideKeyboard: function() {
             document.activeElement.blur();
             $$("input").blur();
@@ -369,7 +378,6 @@ const app = new Framework7({
             let mobileToken = localStorage.PUSH_MOBILE_TOKEN;
             let notifications = self.methods.getFromStorage('notifications');
             let mapSettings = self.methods.getFromStorage('mapSettings');
-            //let elemRc = localStorage.elemRc;
             let additionalFlags = self.methods.getFromStorage('additionalFlags');
 
             localStorage.clear();
@@ -670,6 +678,41 @@ const app = new Framework7({
                     }
                 });
         },
+        getAutomatedReportList: function(callback){
+            let self = this;
+            self.request.promise.get(API_URL.GET_AUTOMATED_REPORT_LIST, {MajorToken: self.data.MajorToken, MinorToken: self.data.MinorToken}, 'json')
+              .then(function (result) {
+                  if(result.data.MajorCode === '000' ) {
+                      if(result.data.Data.length){
+                          result.data.Data.sort(function(a, b) {
+                              if (a.Name < b.Name) return -1;
+                              if (a.Name > b.Name) return 1;
+                              return 0;
+                          });
+                      }
+                      self.methods.setInStorage({name: 'automatedReportList', data: result.data.Data});
+                      if (callback instanceof Function){
+                          callback(result.data.Data);
+                      }
+                  }else{
+                      self.dialog.alert(LANGUAGE.PROMPT_MSG023 + `<br>MajorCode: ${result.data.MajorCode}<br>MinorCode: ${result.data.MinorCode}<br>${result.data.Data}`);
+                      if (callback instanceof Function){
+                          callback({});
+                      }
+                  }
+              })
+              .catch(function (err) {
+                  console.log(err);
+                  if (callback instanceof Function){
+                      callback({});
+                  }
+                  if (err && err.status === 404){
+                      self.dialog.alert(LANGUAGE.PROMPT_MSG002);
+                  }else{
+                      self.dialog.alert(LANGUAGE.PROMPT_MSG003);
+                  }
+              });
+        },
         getFromStorage: function(name){
             let ret = [];
             let str = '';
@@ -684,6 +727,13 @@ const app = new Framework7({
 
                     case 'assetList':
                         str = localStorage.getItem("COM.QUIKTRAK.NEW.ASSETLIST");
+                        if(str) {
+                            ret = JSON.parse(str);
+                        }
+                        break;
+
+                    case 'automatedReportList':
+                        str = localStorage.getItem("COM.QUIKTRAK.NEW.AUTOMATEDREPORTSLIST");
                         if(str) {
                             ret = JSON.parse(str);
                         }
@@ -792,7 +842,9 @@ const app = new Framework7({
                     case 'contactList':
                         localStorage.setItem("COM.QUIKTRAK.NEW.CONTACTLIST", JSON.stringify(params.data));
                         break;
-
+                    case 'automatedReportList':
+                        localStorage.setItem("COM.QUIKTRAK.NEW.AUTOMATEDREPORTSLIST", JSON.stringify(params.data));
+                        break;
                     case 'assetTypes':
                         localStorage.setItem("COM.QUIKTRAK.NEW.ASSETTYPES", JSON.stringify(params.data));
                         break;
@@ -1420,7 +1472,7 @@ const app = new Framework7({
                     Icon: 'icon-live-acc text-color-green f7-icons',
                     IconColor: 'text-color-green',
                     /*IconHTML:   `<div class='icon-container text-align-center text-color-white bg-color-green display-flex align-items-center justify-content-center'>
-                                    <i class='f7-icons size-16 line-height-icon-fix icon-live-acc '></i> 
+                                    <i class='f7-icons size-16 line-height-icon-fix icon-live-acc '></i>
                                 </div>`,*/
                 },
                 {
@@ -1430,7 +1482,7 @@ const app = new Framework7({
                     Icon: 'icon-live-stopped text-color-gray f7-icons',
                     IconColor: 'text-color-gray',
                     /*IconHTML:   `<div class='icon-container text-align-center text-color-white bg-color-gray display-flex align-items-center justify-content-center'>
-                                    <i class='f7-icons size-16 line-height-icon-fix icon-live-stopped '></i> 
+                                    <i class='f7-icons size-16 line-height-icon-fix icon-live-stopped '></i>
                                 </div>`,*/
                 },
                 {
@@ -1440,7 +1492,7 @@ const app = new Framework7({
                     Icon: 'icon-menu-geofence text-color-green f7-icons',
                     IconColor: 'text-color-green',
                     /*IconHTML:   `<div class='icon-container text-align-center text-color-white bg-color-green display-flex align-items-center justify-content-center'>
-                                    <i class='f7-icons size-16 line-height-icon-fix icon-menu-geofence '></i> 
+                                    <i class='f7-icons size-16 line-height-icon-fix icon-menu-geofence '></i>
                                 </div>`,*/
                 },
                 {
@@ -1450,7 +1502,7 @@ const app = new Framework7({
                     Icon: 'icon-menu-geofence text-color-red f7-icons',
                     IconColor: 'text-color-red',
                     /*IconHTML:   `<div class='icon-container text-align-center text-color-white bg-color-red display-flex align-items-center justify-content-center'>
-                                    <i class='f7-icons size-16 line-height-icon-fix icon-menu-geofence '></i> 
+                                    <i class='f7-icons size-16 line-height-icon-fix icon-menu-geofence '></i>
                                 </div>`,*/
                 },
                 {
@@ -1460,7 +1512,7 @@ const app = new Framework7({
                     Icon: 'icon-header-alarm text-color-red f7-icons',
                     IconColor: 'text-color-red',
                     /*IconHTML:   `<div class='icon-container text-align-center text-color-white bg-color-red display-flex align-items-center justify-content-center'>
-                                    <i class='f7-icons size-16 line-height-icon-fix icon-header-alarm '></i> 
+                                    <i class='f7-icons size-16 line-height-icon-fix icon-header-alarm '></i>
                                 </div>`,*/
                 },
             ];

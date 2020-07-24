@@ -221,6 +221,11 @@
 
                 self.Geofences = [];
                 mapSettingsObg && mapSettingsObg.showGeofences ? self.showGeofences(self.Map) : '';
+
+                if (!self.$app.methods.isObjEmpty(mapSettingsObg)){
+                    if(mapSettingsObg.showGeofences) self.showGeofences(self.Map);
+                    if(mapSettingsObg.showTooltips) self.showTooltips(self.MarkersGroup);
+                }
             },
             isGeofencesShowed: function(){
                 return this.Geofences ? !!this.Geofences.length : false;
@@ -269,9 +274,33 @@
                     for (let i = self.Geofences.length - 1; i >= 0; i--) {
                         if (self.Geofences[i].polygon) {
                             map.removeLayer(self.Geofences[i].polygon);
+                            //itm.openTooltip()
                         }
                     }
                     self.Geofences.length = 0;
+                }
+            },
+            showTooltips: function(markersGroup){
+                let markers = markersGroup.getLayers();
+                if(markers.length){
+                    markers.forEach((itm) => {
+                        itm.bindTooltip(itm.options.customName,
+                            {
+                                offset: L.point(15, -20),
+                                permanent: true,
+                                direction: 'right',
+                                //opacity: 0.5
+                            }
+                        )
+                    })
+                }
+            },
+            hideTooltips: function(markersGroup){
+                let markers = markersGroup.getLayers();
+                if(markers.length){
+                    markers.forEach((itm) => {
+                        itm.unbindTooltip();
+                    })
                 }
             },
             showMapControlls: function(e){
@@ -296,6 +325,20 @@
                                                             </div>
                                                         </div>
                                                     </li>
+                                                    <li class="item-content changeTooltipState popover-close">
+                                                        <div class="item-media ${ mapSettingsObg && mapSettingsObg.showTooltips ?  'text-color-green' : 'text-color-lightgray'} ">
+                                                            <i class="f7-icons icon-asset-name "></i>
+                                                        </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title ">${ LANGUAGE.COM_MSG108 }</div>
+                                                            <div class="item-after">
+                                                                <div class="toggle color-green">
+                                                                    <input type="checkbox" name="checkbox-map-settings" value="showTooltips" ${ mapSettingsObg && mapSettingsObg.showTooltips ?  'checked' : '' }>
+                                                                    <span class="toggle-icon"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -309,6 +352,7 @@
                     on: {
                         opened: function(popover){
                             let GeofencesState = popover.$el.find('.changeGeofenceState');
+                            let TooltipState = popover.$el.find('.changeTooltipState');
 
                             GeofencesState.on('click', function () {
                                 let input = $$(this).find('input[name="checkbox-map-settings"]');
@@ -316,6 +360,13 @@
                                 mapSettingsObg[input.val()] = newState;
                                 self.$app.methods.setInStorage({name: 'mapSettings', data: mapSettingsObg});
                                 newState ? self.showGeofences(self.Map) : self.hideGeofences(self.Map);
+                            });
+                            TooltipState.on('click', function () {
+                                let input = $$(this).find('input[name="checkbox-map-settings"]');
+                                let newState = !input.prop( "checked" );
+                                mapSettingsObg[input.val()] = newState;
+                                self.$app.methods.setInStorage({name: 'mapSettings', data: mapSettingsObg});
+                                newState ? self.showTooltips(self.MarkersGroup) : self.hideTooltips(self.MarkersGroup);
                             });
                         },
                         closed: function(popover){
@@ -352,7 +403,7 @@
                     let asset = POSINFOASSETLIST[self.AssetsIMEIs[i]];
 
                     if (asset && asset.posInfo && parseFloat(asset.posInfo.lat) !== 0 && parseFloat(asset.posInfo.lng) !== 0){
-                        let marker = L.marker([asset.posInfo.lat, asset.posInfo.lng], {icon: self.$app.methods.getMarkerIcon({asset: true, type: asset.SolutionType})});
+                        let marker = L.marker([asset.posInfo.lat, asset.posInfo.lng], {customName: asset.Name, icon: self.$app.methods.getMarkerIcon({asset: true, type: asset.SolutionType})});
                         marker
                             .bindPopup(self.$app.methods.getMarkerDataTable(asset), {maxWidth:self.$app.data.MaxMapPopupWidth, closeButton: false})
                             .on('popupopen', function (e) {

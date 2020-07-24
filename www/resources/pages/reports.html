@@ -19,6 +19,12 @@
                 </div>
             </div>
 
+            <div class="toolbar toolbar-bottom ">
+                <div class="toolbar-inner ">
+                    <a href="/reports-automated-list/" class="link button width-100 color-white"><i class="f7-icons icon-live-date margin-right"></i> {{@global.LANGUAGE.REPORTS_MSG11}}</a>
+                </div>
+            </div>
+
             <!-- Scrollable page content-->
             <div class="page-content">
                 <div class="block text-align-center">{{PageHeaderDescription}}</div>
@@ -38,7 +44,7 @@
                         {{/ReportList}}
                     </ul>
                 </div>
-                
+
             </div>
         </div>
 </template>
@@ -93,20 +99,20 @@
             return ret;
         },
         methods: {
-            
+
 
         },
-       
-        on: {
-            pageInit: function (e, page) { 
-                let self = this;
-                
 
-                
-            },   
+        on: {
+            pageInit: function (e, page) {
+                let self = this;
+
+
+
+            },
             pageAfterOut: function () {
-                
-            },  
+
+            },
 
         }
     };

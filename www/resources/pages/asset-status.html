@@ -6,7 +6,7 @@
             <div class="navbar-bg"></div>
             <div class="navbar-inner">
                 <div class="left">
-                    {{#if LiveAsset}}
+                    {{#if isLiveAsset}}
                     <a href="/panel-left/" class="link icon-only " >
                         <i class="if-not-ios f7-icons icon-header-menu"></i>
                         <i class="if-ios icon material-icons">menu</i>
@@ -22,7 +22,7 @@
                     {{Name}}
                 </div>
                 <div class="right">
-                    {{#if LiveAsset}}
+                    {{#if isLiveAsset}}
                     <a href="/asset-edit/?imei={{IMEI}}" class="link icon-only ">
                         <i class="f7-icons icon-header-edit"></i>
                     </a>
@@ -42,7 +42,7 @@
         {{/if}}
         <div class="toolbar toolbar-bottom ">
             <div class="toolbar-inner ">
-                {{#if LiveAsset}}
+                {{#if isLiveAsset}}
                 <a href="/report-theft/?imei={{IMEI}}" class="link button width-100 color-white"><i class="f7-icons icon-live-report-thief margin-right"></i> {{@global.LANGUAGE.ASSET_STATUS_LIVE_MSG07}}</a>
                 {{else}}
                 <a @click="requestStatus" href="#" class="link button width-100 color-white"><i class="f7-icons icon-header-refresh margin-right"></i> {{@global.LANGUAGE.COM_MSG057}}</a>
@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            {{#if LiveAsset}}
+            {{#if isLiveAsset}}
             <div class="list no-margin " >
                 <ul>
                     <li class="item-content">
@@ -264,7 +264,7 @@
                 IMEI: asset.IMEI,
                 IMSI: asset.IMSI,
                 Id: asset.Id,
-                LiveAsset: asset.SolutionType.toLowerCase() !== 'protect' && asset.SolutionType.toLowerCase() !== 'loc8',
+                isLiveAsset: asset.SolutionType.toLowerCase() !== 'protect' && asset.SolutionType.toLowerCase() !== 'loc8',
                 Tabs: !!tabsFlag,
 
                 PositionTime: asset.posInfo.positionTime ? asset.posInfo.positionTime.format(window.COM_TIMEFORMAT) : LANGUAGE.COM_MSG031,
@@ -353,7 +353,11 @@
                 if (params && params.id) {
                     let url = API_URL.SET_GEOLOCK;
                     if (params.name === 'Immobilise') {
-                        url = API_URL.SET_IMMOBILISATION;
+                        if(self.isLiveAsset){
+                            url = API_URL.SET_IMMOBILISATION_NO_PAY;
+                        }else{
+                            url = API_URL.SET_IMMOBILISATION;
+                        }
                     }else if(params.name === 'LockDoor'){
                         url = API_URL.SET_DOORLOCK;
                     }

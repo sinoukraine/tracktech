@@ -1,6 +1,6 @@
 window.LanguagePackages= {
 	"zh":{
-		
+
 	},
 	"en":{
 		"COM_MSG000": "Submit",
@@ -65,7 +65,7 @@ window.LanguagePackages= {
 		"COM_MSG059": "Active",
 		"COM_MSG060": "Inactive",
 		"COM_MSG061": "Hide Geofences",
-		"COM_MSG062": "Show Geofences",
+		"COM_MSG062": "Geofences",
 		"COM_MSG063": "State",
 		"COM_MSG064": "Remove",
 		"COM_MSG065": "Selected Assets",
@@ -111,6 +111,12 @@ window.LanguagePackages= {
 		"COM_MSG105": "Armed",
 		"COM_MSG106": "Disarmed",
 		"COM_MSG107": "Later",
+		"COM_MSG108": "Asset Names",
+		"COM_MSG109": "Hide Asset Names",
+		"COM_MSG110": "Weekly",
+		"COM_MSG111": "Daily",
+		"COM_MSG112": "Monthly",
+		"COM_MSG113": "Type",
 
 		"PROMPT_MSG000": "Nothing found",
 		"PROMPT_MSG001": "The login(email) or password you entered is incorrect.",
@@ -232,6 +238,9 @@ window.LanguagePackages= {
 		"PROMPT_MSG112": "Thanks for using our app. Please take a moment to rate it, and give us feedback so we can improve it for you.",
 		"PROMPT_MSG113": "Do not show again",
 		"PROMPT_MSG114": "That Email address is already registered. Try another, please",
+		"PROMPT_MSG115": "You are going to delete Automated Report",
+		"PROMPT_MSG116": "Enable or disable automated report",
+		"PROMPT_MSG117": "Invalid Custom Email",
 
 		"HOME_MSG00": "Home",
 		"HOME_MSG01": "All",
@@ -502,6 +511,14 @@ window.LanguagePackages= {
 		"REPORTS_MSG08": "Report Options",
 		"REPORTS_MSG09": "Movement",
 		"REPORTS_MSG10": "Stationary",
+		"REPORTS_MSG11": "Automated Reports",
+		"REPORTS_MSG12": "",
+		"REPORTS_MSG13": "",
+		"REPORTS_MSG14": "",
+		"REPORTS_MSG15": "Edit Report",
+		"REPORTS_MSG16": "New Report",
+		"REPORTS_MSG17": "Schedule",
+		"REPORTS_MSG18": "Day",
 
 		"REPORT_ALERT_LIST_MSG01": "None",
 		"REPORT_ALERT_LIST_MSG02": "Custom",
@@ -542,13 +559,13 @@ window.LanguagePackages= {
 
 	},
 	"ua":{
-		
+
 	},
 	"ru":{
-		
+
 	},
 	"es":{
-		
+
 	}
 };
 var lang = navigator.browserLanguage ? navigator.browserLanguage.toLowerCase() : navigator.language.toLowerCase();
@@ -560,17 +577,17 @@ else if(lang.indexOf("es") >= 0) {
 }
 else if(lang.indexOf("zh") >= 0) {
 	lang = "en";
-}	
+}
 else if(lang.indexOf("ua") >= 0 || lang.indexOf("uk") >= 0) {
 	//lang = "ua";
-	lang = "en";	
+	lang = "en";
 }
 else if(lang.indexOf("ru") >= 0) {
 	//lang = "ru";
-	lang = "en";	
-}	
+	lang = "en";
+}
 else {
-	lang = "en";		
+	lang = "en";
 }
 window.LANGUAGE = LanguagePackages[lang];
 if(!Template7.global)

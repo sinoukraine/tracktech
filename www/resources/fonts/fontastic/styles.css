@@ -368,3 +368,15 @@
 .icon-menu-manual:before {
   content: "\e00f";
 }
+.icon-boat-icon:before {
+  content: "\e010";
+}
+.icon-acc:before {
+  content: "\e011";
+}
+.icon-other-add:before {
+  content: "\e012";
+}
+.icon-other-remove:before {
+  content: "\e013";
+}
