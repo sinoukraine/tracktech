@@ -389,12 +389,12 @@ const app = new Framework7({
             if (mapSettings) {
                 self.methods.setInStorage({ name: 'mapSettings', data: mapSettings });
             }
-            if (deviceToken) {
+           /* if (deviceToken) {
                 localStorage.PUSH_DEVICE_TOKEN = deviceToken;
             }
             if (mobileToken) {
                 localStorage.PUSH_MOBILE_TOKEN = mobileToken;
-            }
+            }*/
             /*if(elemRc){
                 localStorage.elemRc = elemRc;
             }*/

@@ -77,10 +77,12 @@
     <plugin name="cordova-plugin-dialogs" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.2" />
-    <plugin name="cordova-plugin-camera" source="npm" spec="4.0.3"  />
-    <plugin spec="https://github.com/phonegap/phonegap-mobile-accessibility.git" source="git" />
+    <plugin name="cordova-plugin-camera" source="npm" spec="4.0.3"  />   
+    <plugin name="phonegap-plugin-mobile-accessibility" source="npm" spec="~1.0.5"  />
     <plugin name="cordova-launch-review" source="npm" spec="3.1.1" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" spec="3.0.0"  />
+
+    <plugin name="cordova-plugin-safariviewcontroller" source="npm" spec="1.6.0"/>
     <!-- <plugin name="cordova-plugin-wkwebview-engine" source="npm" spec="1.2.1"  /> -->
     <!-- <plugin name="cordova-plugin-wkwebview-file-xhr" source="npm" spec="2.1.4"  /> -->
     
@@ -102,9 +104,9 @@
     <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
         <string>Need photo library access to save pictures there</string>
     </edit-config>
-    <config-file platform="ios" target="*-Info.plist" parent="ITSAppUsesNonExemptEncryption">
+    <edit-config target="ITSAppUsesNonExemptEncryption" file="*-Info.plist" platform="ios" mode="merge">
         <false/>
-    </config-file>  
+    </edit-config>  
 
 
     <platform name="android">
