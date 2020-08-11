@@ -286,8 +286,8 @@
                 Acc: afs.acc ? afs.acc.value : false,
 
                 Address: asset.lastQueryPosinfo && asset.lastQueryPosinfo.address ? asset.lastQueryPosinfo.address : LANGUAGE.COM_MSG004,
-                //Coords: 'GPS: ' + Protocol.Helper.convertDMS(asset.posInfo.lat, asset.posInfo.lng),
-                Coords: `GPS: ${parseFloat(asset.posInfo.lat).toFixed(5)}, ${parseFloat(asset.posInfo.lng).toFixed(5)}`,
+                Coords: 'GPS: ' + Protocol.Helper.convertDMS(asset.posInfo.lat, asset.posInfo.lng),
+                //Coords: `GPS: ${parseFloat(asset.posInfo.lat).toFixed(5)}, ${parseFloat(asset.posInfo.lng).toFixed(5)}`,
 
                 IsImmobilisationSupported: (parseInt(asset._FIELD_INT2) & 1) > 0,
                 IsLockDoorSupported: (parseInt(asset._FIELD_INT2) & 512) > 0,

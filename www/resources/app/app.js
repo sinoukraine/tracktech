@@ -600,7 +600,13 @@ const app = new Framework7({
             let self = this;
             setTimeout(function() {
                 let additionalFlags = self.methods.getFromStorage('additionalFlags');
-                if(!additionalFlags.modalReview && additionalFlags.firstLoginDone){
+                if(!additionalFlags.importantNoticeSimIssue){
+                    self.methods.showImportantNotice({
+                        title: LANGUAGE.PROMPT_MSG119,
+                        text: LANGUAGE.PROMPT_MSG118,
+                        flagName: 'importantNoticeSimIssue',
+                    });
+                }else if(!additionalFlags.modalReview && additionalFlags.firstLoginDone){
                     self.methods.showAskForReview();
                 }
 
@@ -1608,6 +1614,20 @@ const app = new Framework7({
                     assetImg = `<img class="user-img" src="resources/images/no-photo.svg" alt="">`;
                 }
 
+            }else if(params && imgFor.smartSelect){
+                if (params.Icon && pattern.test(params.Icon)) {
+                    assetImg = `${API_DOMIAN9}Attachment/images/${params.Icon+'?'+ self.data.NewImageTimestamp}`;
+                }else{
+                    assetImg = 'resources/images/svg_asset.svg';
+                }
+               /* if (params.Icon && pattern.test(params.Icon)) {
+                    assetImg = `<img class="user-img user-img-shadow" src="${API_DOMIAN9}Attachment/images/${params.Icon}?${ self.data.NewImageTimestamp }" alt="">`;
+                }else if(params.Icon && params.Icon.substring(0,3) == pattern2){
+                    assetImg = '<div class="user-img bg-color-custom display-flex justify-content-center align-items-center"><div class="text-align-center vertical-center size-28 "><i class="icon text-color-white asset-icon-'+params.Icon.replace(regex, '-').replace(regex2, '')+'"></i></div></div>';
+
+                }else{
+                    assetImg = `<img class="user-img user-img-shadow" src="resources/images/svg_asset.svg" alt="">`;
+                }*/
             }else{
                 assetImg = false;
             }
@@ -1772,8 +1792,8 @@ const app = new Framework7({
                     }*/
                     markerData +=   '<tr>';
                     markerData +=       '<td class="marker-data-caption">'+LANGUAGE.ASSET_TRACK_MSG11+'</td>';
-                    //markerData +=       '<td class="marker-data-value ">'+ Protocol.Helper.convertDMS(asset.posInfo.lat, asset.posInfo.lng) +'</td>';
-                    markerData +=       '<td class="marker-data-value ">'+ parseFloat(asset.posInfo.lat).toFixed(5) + ', ' +parseFloat(asset.posInfo.lng).toFixed(5) +'</td>';
+                    markerData +=       '<td class="marker-data-value ">'+ Protocol.Helper.convertDMS(asset.posInfo.lat, asset.posInfo.lng) +'</td>';
+                    //markerData +=       '<td class="marker-data-value ">'+ parseFloat(asset.posInfo.lat).toFixed(5) + ', ' +parseFloat(asset.posInfo.lng).toFixed(5) +'</td>';
                     markerData +=   '</tr>';
                     markerData +=   '<tr>';
                     markerData +=       '<td class="marker-data-caption">'+LANGUAGE.ASSET_TRACK_MSG12+'</td>';
@@ -2392,6 +2412,28 @@ const app = new Framework7({
                         //bold: true,
                         onClick: function () {
                             mainView.router.navigate('/credit-recharge/');
+                        }
+                    },
+                ]
+            }).open();
+        },
+        showImportantNotice: function(params){
+            let self = this;
+
+            let modalTex = `
+            <div class="custom-modal-title text-color-red">${ params.title }</div>
+            <div class="custom-modal-text">${ params.text }</div>
+            `;
+            self.dialog.create({
+                title: `<div class="custom-modal-logo-wrapper"><img class="custom-modal-logo" src="${ self.data.logoBlack }" alt=""/></div>`,
+                text: modalTex,
+                buttons: [
+                    {
+                        text: LANGUAGE.COM_MSG055,
+                        onClick: function () {
+                            let data={};
+                            data[params.flagName] = true;
+                            self.methods.setInStorage({name: 'additionalFlags', data: data});
                         }
                     },
                 ]

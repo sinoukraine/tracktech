@@ -241,7 +241,8 @@ window.LanguagePackages= {
 		"PROMPT_MSG115": "You are going to delete Automated Report",
 		"PROMPT_MSG116": "Enable or disable automated report",
 		"PROMPT_MSG117": "Invalid Custom Email",
-
+		"PROMPT_MSG118": "Quiktrak has been made aware of a failure within one of our sim providers services and portal that has impacted some services in certain sim ranges. Our support staff are working hard to establish an impacted client list and to make contact to arrange an on-site technician visit.</br>If you notice any assets in your account that are not functioning correctly please email <a href='mailto:support@quiktrak.com.au' target='_blank' class='external color-red'>support@quiktrak.com.au</a> with your account name, contact number and location to help expedite the restoration process.</br>We appreciate your understanding and patience.",
+		"PROMPT_MSG119": "IMPORTANT ANNOUNCEMENT",
 		"HOME_MSG00": "Home",
 		"HOME_MSG01": "All",
 		"HOME_MSG02": "View All",
