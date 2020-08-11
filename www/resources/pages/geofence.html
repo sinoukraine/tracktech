@@ -40,8 +40,9 @@
                         <a key="key-asset-list" class="item-link smart-select smart-select-asset-list custom-smart-select" data-open-in="popup" data-form-color-theme="green" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
                             <select name="Assets" multiple required validate>
                                 {{#AssetList}}
-                                    <option value="{{IMEI}}" data-option-image="{{AssetImg}}" {{#if AssetSelected}}selected{{/if}}>{{Name}}</option>
+                                    <option value="{{IMEI}}" {{#if AssetSelected}}selected{{/if}}>{{Name}}</option>
                                 {{/AssetList}}
+                               <!-- <option value="{{IMEI}}" data-option-image="{{AssetImg}}" {{#if AssetSelected}}selected{{/if}}>{{Name}}</option>-->
                             </select>
                             <div class="item-content item-input">
                                 <div class="item-media text-color-lightgray">
