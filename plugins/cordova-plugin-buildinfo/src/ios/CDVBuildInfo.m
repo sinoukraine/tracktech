@@ -33,11 +33,22 @@ CDVPluginResult* _cachePluginResult = nil;
 
 static mach_timebase_info_data_t sTimebaseInfo;
 
-void reportProfileProcessTime(const uint64_t start, const NSString *text) {
+void _BuildInfo_reportProfileProcessTime(const uint64_t start, const NSString *text) {
 	
 	uint64_t elapsedNano = (mach_absolute_time() - start) * sTimebaseInfo.numer / sTimebaseInfo.denom;
 	
 	NSLog(@"BuildInfo init: %.4f sec(%llu nsec): %@", elapsedNano / 1000000000.0, elapsedNano, text);
+}
+
+const NSString* _BuildInfo_GetDictionaryValue(const NSDictionary *dict, const NSString *key, const NSString *defaultValue) {
+
+    const NSString *value = dict[key];
+    
+	if (!value) {
+        value = defaultValue;
+    }
+
+    return value;
 }
 
 /* init */
@@ -54,7 +65,7 @@ void reportProfileProcessTime(const uint64_t start, const NSString *text) {
 	// Cache
 	if (nil != _cachePluginResult) {
 		[self.commandDelegate sendPluginResult:_cachePluginResult callbackId:command.callbackId];
-		reportProfileProcessTime(profilrStart, @"Cache data return");
+		_BuildInfo_reportProfileProcessTime(profilrStart, @"Cache data return");
 		return;
 	}
 	
@@ -93,13 +104,15 @@ void reportProfileProcessTime(const uint64_t start, const NSString *text) {
 		}
 	}
 	
+    const NSString *bundleName = _BuildInfo_GetDictionaryValue(info, @"CFBundleName", @"");
+    
 	NSDictionary* result = @{
 							 @"packageName"    : [bundle bundleIdentifier],
 							 @"basePackageName": [bundle bundleIdentifier],
-							 @"displayName"    : [info objectForKey:@"CFBundleDisplayName"],
-							 @"name"           : [info objectForKey:@"CFBundleName"],
-							 @"version"        : [info objectForKey:@"CFBundleShortVersionString"],
-							 @"versionCode"    : [info objectForKey:@"CFBundleVersion"],
+                             @"displayName"    : _BuildInfo_GetDictionaryValue(info, @"CFBundleDisplayName", bundleName),
+							 @"name"           : bundleName,
+							 @"version"        : _BuildInfo_GetDictionaryValue(info, @"CFBundleShortVersionString", @""),
+							 @"versionCode"    : _BuildInfo_GetDictionaryValue(info, @"CFBundleVersion", @""),
 							 @"debug"          : debug,
 							 @"buildDate"      : buildDate,
 							 @"installDate"    : installDate,
@@ -129,7 +142,7 @@ void reportProfileProcessTime(const uint64_t start, const NSString *text) {
 	}
 
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-	reportProfileProcessTime(profilrStart, @"Return");
+	_BuildInfo_reportProfileProcessTime(profilrStart, @"Return");
 }
 
 @end
