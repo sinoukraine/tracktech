@@ -176,11 +176,11 @@
                 DealerName: self.$app.name,
                 ShowPayment: true,
             };
-            if (userInfo.CountryCode && userInfo.CountryCode.toLowerCase() === 'aus') {
+            /*if (userInfo.CountryCode && userInfo.CountryCode.toLowerCase() === 'aus') {
                 ret.ToolbarAdditionaClass += ' toolbar-size-3';
                 ret.ShowButtonCall = true;
                 ret.ShowButtonReferFriend = true;
-            }
+            }*/
             if(self.$app.device.ios && !additionalFlags.elemRc){
             //if(!additionalFlags.elemRc){
                 ret.ShowPayment = false;

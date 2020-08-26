@@ -65,7 +65,10 @@
     --f7-searchbar-input-extra-padding-left: 15px;
     --f7-searchbar-input-border-radius: 8px;
     --f7-searchbar-bg-color: #F2F2F2;
+
+    --f7-panel-backdrop-bg-color: rgba(0,0,0,.3)
 }
+
 .fab[class*="-bottom2"] {
     bottom: calc(var(--f7-fab-margin2) + var(--f7-safe-area-bottom));
 }
@@ -157,10 +160,10 @@
     --f7-page-toolbar-bottom-offset: calc(var(--f7-toolbar-height)*2);
 }
 .color-custom {
-    --f7-theme-color: #E3072B;
+    --f7-theme-color: #f01827;
     --f7-theme-color-rgb: 227,7,43;
-    --f7-theme-color-shade: #b60622;
-    --f7-theme-color-tint: #f82c4d;
+    --f7-theme-color-shade: #c60d1a;
+    --f7-theme-color-tint: #f45661;
 }
 
 .color-darkgray {

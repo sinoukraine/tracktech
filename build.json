@@ -1,14 +1,7 @@
 {
-    "android": {
-        "debug": {
-            "keystore": "/quiktrak.jks",
-            "storePassword": "quiktrak",
-            "alias": "quiktrak",
-            "password" : "quiktrak",
-            "keystoreType": "jks"
-        },
+    "android": {       
         "release": {
-            "keystore": "/quiktrak.jks",
+            "keystore": "D://Google Диск/work/app/other/Google certificate/quiktrakNew.jks",
             "storePassword": "quiktrak",
             "alias": "quiktrak",
             "password" : "quiktrak",

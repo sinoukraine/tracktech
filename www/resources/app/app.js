@@ -49,11 +49,11 @@ API_URL.GEOFENCE_DELETE = API_DOMIAN1 + "Device/FenceDelete";
 
 API_URL.URL_ROUTE = "https://www.google.com/maps/dir/?api=1&destination={0},{1}";
 API_URL.URL_ROUTE_IOS = "maps://maps.apple.com/maps?daddr={0},{1}";
-API_URL.URL_SUPPORT = "https://support.quiktrak.eu/";
+API_URL.URL_SUPPORT = "https://support.carcitywest.quiktrak.eu/";
 API_URL.URL_REPORT_THEFT = "https://forms.quiktrak.com.au/report-theft/";
-API_URL.URL_UPGRADE = "https://app.quikprotect.co/activation2/";
+API_URL.URL_UPGRADE = "https://activation.carcitywest.quiktrak.eu/";
 API_URL.REFERRAL_PROGRAM = "https://forms.quiktrak.com.au/referral-program/";
-API_URL.URL_USER_GUIDE = "https://quiktrak.com.au/pdf/manuals/qt-pro-app.pdf";
+API_URL.URL_USER_GUIDE = "https://carcitywest.quikloc8.com/manuals/ccw-app-manual.pdf";
 
 API_URL.GET_BALANCE = API_DOMIAN3 + "Balance";
 API_URL.EDIT_ACCOUNT = API_DOMIAN3 + "AccountEdit";
@@ -108,8 +108,8 @@ $$('#app').append(compiledTemplate());
 
 // Init App
 const app = new Framework7({
-    id: 'com.quiktrak.pro',
-    name: 'QuikTrak Pro',
+    id: 'com.carcitywest.app',
+    name: 'Car City West',
     root: '#app',
     theme: Framework7.device.ios ? 'ios' : 'md',
     view: {
@@ -130,9 +130,9 @@ const app = new Framework7({
             maxPopupWidth = 300;
         }
         return {
-            logo: 'resources/images/logo.svg',
-            logoBlack: 'resources/images/logo-black.svg',
-            logoModal: 'resources/images/logo-black.svg',
+            logo: 'resources/images/logo.png',
+            logoBlack: 'resources/images/logo.png',
+            logoModal: 'resources/images/logo.png',
             MaxMapPopupWidth: maxPopupWidth,
             PolygonCustomization: {
                 color: '#AA5959',
@@ -176,9 +176,9 @@ const app = new Framework7({
                 },
             },
             AppDetails: {
-                name: 'QuikTrak-Pro-app',
-                code: 23,
-                supportCode: 3,
+                name: 'CarCityWest-app',
+                code: 41,
+                supportCode: 41,
                 appId: '',
                 appleId: '1505742400',
                 appVersion: '',
@@ -195,7 +195,9 @@ const app = new Framework7({
             this.progressbar.show('custom');
         },
         routerAjaxComplete: function () {
-            this.progressbar.hide();
+            this.utils.nextTick(()=>{
+                this.progressbar.hide();
+            });
         },
         connection: function(isOnline){
             let self = this;
@@ -580,7 +582,7 @@ const app = new Framework7({
                     if (!update) {
                         self.dialog.close();
                         LoginEvents.emit('signedIn', assetList);
-                        self.methods.afterLogin();
+                        self.methods.afterLogin(assetList);
                     }
                     if (callback instanceof Function) {
                         callback();
@@ -596,19 +598,33 @@ const app = new Framework7({
                     }*/
                 });
         },
-        afterLogin: function(){
+        afterLogin: function(assetList){
             let self = this;
             setTimeout(function() {
                 let additionalFlags = self.methods.getFromStorage('additionalFlags');
-                if(!additionalFlags.importantNoticeSimIssue){
-                    self.methods.showImportantNotice({
-                        title: LANGUAGE.PROMPT_MSG119,
-                        text: LANGUAGE.PROMPT_MSG118,
-                        flagName: 'importantNoticeSimIssue',
-                    });
-                }else if(!additionalFlags.modalReview && additionalFlags.firstLoginDone){
+                /*if(!additionalFlags.importantNoticeSimIssue){
+                    let datamogSim = false;
+                    //let datamogPattern = /^42|^43/i;
+                    let datamogPattern = /^423/i;
+                    for (let i = 0; i < assetList.length; i++) {
+                        if(assetList[i].SolutionType !== 'Protect' && assetList[i].IMSI && datamogPattern.test(assetList[i].IMSI)){
+                            datamogSim = true;
+                            break;
+                        }
+                    }
+                    if(datamogSim){
+                        self.methods.showImportantNotice({
+                            title: LANGUAGE.PROMPT_MSG119,
+                            text: LANGUAGE.PROMPT_MSG118,
+                            flagName: 'importantNoticeSimIssue',
+                        });
+                    }else{
+                        additionalFlags.importantNoticeSimIssue = true;
+                    }
+
+                }else*/ /*if(!additionalFlags.modalReview && additionalFlags.firstLoginDone){
                     self.methods.showAskForReview();
-                }
+                }*/
 
                 if(!additionalFlags.firstLoginDone){
                     additionalFlags.firstLoginDone = true;
