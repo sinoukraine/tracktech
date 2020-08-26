@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1097482483564-9tndsla5855i9fpfe1lbb3r7u5488qob.apps.googleusercontent.com</string>
+	<string>1097482483564-nt58bk6hgbvc8g1qa4i9vab8k8l2rn49.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1097482483564-9tndsla5855i9fpfe1lbb3r7u5488qob</string>
+	<string>com.googleusercontent.apps.1097482483564-nt58bk6hgbvc8g1qa4i9vab8k8l2rn49</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBIAv1FSX73w5zpZNX3mXeUl-DkyN6r7EA</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.quiktrak.pro</string>
+	<string>com.carcitywest.app</string>
 	<key>PROJECT_ID</key>
 	<string>quiktrak-1a820</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1097482483564:ios:c447d14186854fd18d2549</string>
+	<string>1:1097482483564:ios:ee31f513e1cd5ece8d2549</string>
 	<key>DATABASE_URL</key>
 	<string>https://quiktrak-1a820.firebaseio.com</string>
 </dict>

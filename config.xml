@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget 
-  version="1.0.33"
-  android-versionCode="18"
-  ios-CFBundleVersion="18"
-  id="com.quiktrak.pro"
+  version="1.0.0"
+  android-versionCode="1"
+  ios-CFBundleVersion="1"
+  id="com.carcitywest.app"
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" defaultlocale="en-US" >
   <!-- id="com.quiktrak.plus" -->
-    <name>QuikTrak Pro</name>
+    <name>Car City West</name>
     <description>
-       QuikTrak Pro GPS tracker
+       Car City West Pro GPS tracker
     </description>
     <author email="support@sinopacific.co" href="http://sinopacific.co">
        Sinopacific Co Limited
@@ -34,6 +34,16 @@
   	      <application android:usesCleartextTraffic="true" />
   	  </edit-config>
   	</platform>
+    <platform name="ios">
+        <preference name="WKWebViewOnly" value="true" />
+        <feature name="CDVWKWebViewEngine">
+            <param name="ios-package" value="CDVWKWebViewEngine" />
+        </feature>
+        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+        <edit-config target="ITSAppUsesNonExemptEncryption" file="*-Info.plist" mode="merge">
+          <false/>
+        </edit-config>   
+    </platform>
 
 	<preference name="android-build-tool" value="gradle" />
     <preference name="loadUrlTimeoutValue" value="700000" />
@@ -80,7 +90,9 @@
     <plugin name="cordova-plugin-camera" source="npm" spec="4.0.3"  />   
     <plugin name="phonegap-plugin-mobile-accessibility" source="npm" spec="~1.0.5"  />
     <plugin name="cordova-launch-review" source="npm" spec="3.1.1" />
-    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="3.0.0"  />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="4.0.0"  />
+    <plugin name="cordova-plugin-wkwebview-engine" spec="~1.2.1" />
+    <plugin name="cordova-plugin-wkwebview-file-xhr" spec="~2.1.4"/>
 
     <plugin name="cordova-plugin-safariviewcontroller" source="npm" spec="1.6.0"/>
     <!-- <plugin name="cordova-plugin-wkwebview-engine" source="npm" spec="1.2.1"  /> -->
@@ -104,9 +116,6 @@
     <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
         <string>Need photo library access to save pictures there</string>
     </edit-config>
-    <edit-config target="ITSAppUsesNonExemptEncryption" file="*-Info.plist" platform="ios" mode="merge">
-        <false/>
-    </edit-config>  
 
 
     <platform name="android">
