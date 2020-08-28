@@ -109,7 +109,7 @@ $$('#app').append(compiledTemplate());
 // Init App
 const app = new Framework7({
     id: 'com.carcitywest.app',
-    name: 'Car City West',
+    name: 'Car City West GPS',
     root: '#app',
     theme: Framework7.device.ios ? 'ios' : 'md',
     view: {

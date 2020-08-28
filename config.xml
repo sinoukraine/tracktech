@@ -6,9 +6,9 @@
   id="com.carcitywest.app"
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" defaultlocale="en-US" >
   <!-- id="com.quiktrak.plus" -->
-    <name>Car City West</name>
+    <name>Car City West GPS</name>
     <description>
-       Car City West Pro GPS tracker
+       Car City West GPS tracker
     </description>
     <author email="support@sinopacific.co" href="http://sinopacific.co">
        Sinopacific Co Limited
