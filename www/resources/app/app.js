@@ -180,7 +180,7 @@ const app = new Framework7({
                 code: 41,
                 supportCode: 41,
                 appId: '',
-                appleId: '1505742400',
+                appleId: '1529453003',
                 appVersion: '',
                 supportPhone: '1300885461',
             },
