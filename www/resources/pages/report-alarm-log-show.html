@@ -18,7 +18,7 @@
                             <i class="f7-icons icon-header-filter"></i>
                         </a>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="treeview list media-list virtual-list no-margin no-hairlines no-chevron searchbar-found alarmLogList" >
-                </div>                     
-                
+                </div>
+
             </div>
         </div>
 </template>
@@ -70,7 +70,7 @@
                 VirtualList: false,
                 GroupBy: self.$route.query.groupBy,
             };
-            
+
             return ret;
         },
         methods: {
@@ -135,7 +135,7 @@
                                                 <ul>
                                                     <li class="item-divider">${ LANGUAGE.COM_MSG095 }</li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom2 item-content popover-close" >
                                                             <input type="radio" name="radio-group-by" value="alert" ${ self.GroupBy === 'alert' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -144,7 +144,7 @@
                                                         </label>
                                                     </li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom2 item-content popover-close" >
                                                             <input type="radio" name="radio-group-by" value="asset" ${ self.GroupBy === 'asset' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -153,7 +153,7 @@
                                                         </label>
                                                     </li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom2 item-content popover-close" >
                                                             <input type="radio" name="radio-group-by" value="date" ${ self.GroupBy === 'date' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -191,7 +191,7 @@
             }
         },
         on: {
-            pageInit: function (e, page) { 
+            pageInit: function (e, page) {
                 let self = this;
 
                 let virtualListEl = page.$el.find('.alarmLogList');
@@ -254,7 +254,7 @@
 
                 self.$app.on('treeviewOpen', self.updateHeight);
                 self.$app.on('treeviewClose', self.updateHeight);
-                
+
             },
             pageAfterIn:function(){
                 let self = this;

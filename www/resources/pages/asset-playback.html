@@ -67,7 +67,7 @@
                         </div>
                     </li>
                     <li>
-                        <a class="item-link smart-select smart-select-init custom-smart-select" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="green" data-sheet-push="true">
+                        <a class="item-link smart-select smart-select-init custom-smart-select" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="custom2" data-sheet-push="true">
                             <select name="Events" multiple>
                                 {{#PlaybackFilterEventsList}}
                                 <option value="{{Value}}" data-option-icon="{{Icon}}" selected>{{Name}}</option>
@@ -84,7 +84,7 @@
                         </a>
                     </li>
                     <li>
-                        <label class="item-checkbox item-content color-green">
+                        <label class="item-checkbox item-content color-custom2">
                             <input type="checkbox" name="checkbox-optimized" checked/>
 
                             <div class="item-media text-color-lightgray">
@@ -97,7 +97,7 @@
                         </label>
                     </li>
                     <li>
-                        <label class="item-checkbox item-content color-green">
+                        <label class="item-checkbox item-content color-custom2">
                             <input type="checkbox" name="SendByEmail" />
                             <div class="item-media text-color-lightgray">
                                 <i class="f7-icons icon-live-email"></i>
@@ -113,7 +113,7 @@
                     {{#if ContactListShow}}
                     <li class="item-divider">{{@global.LANGUAGE.PROMPT_MSG102}}</li>
                     <li key="NotificationTo">
-                        <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-contact-list {{#unless ContactList}}disabled{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG077}}" data-form-color-theme="green">
+                        <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-contact-list {{#unless ContactList}}disabled{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG077}}" data-form-color-theme="custom2">
                             <select name="ContactList" multiple validate {{#unless CustomEmail}}required{{/unless}}>
                                 {{#ContactList}}
                                 {{#if EMail}}

@@ -49,11 +49,11 @@ API_URL.GEOFENCE_DELETE = API_DOMIAN1 + "Device/FenceDelete";
 
 API_URL.URL_ROUTE = "https://www.google.com/maps/dir/?api=1&destination={0},{1}";
 API_URL.URL_ROUTE_IOS = "maps://maps.apple.com/maps?daddr={0},{1}";
-API_URL.URL_SUPPORT = "https://support.carcitywest.quiktrak.eu/";
+API_URL.URL_SUPPORT = "https://support.tracktech.quiktrak.eu/";
 API_URL.URL_REPORT_THEFT = "https://forms.quiktrak.com.au/report-theft/";
-API_URL.URL_UPGRADE = "https://activation.carcitywest.quiktrak.eu/";
+API_URL.URL_UPGRADE = "https://activation.tracktech.quiktrak.eu/";
 API_URL.REFERRAL_PROGRAM = "https://forms.quiktrak.com.au/referral-program/";
-API_URL.URL_USER_GUIDE = "https://carcitywest.quikloc8.com/manuals/ccw-app-manual.pdf";
+API_URL.URL_USER_GUIDE = "https://support.tracktech.quiktrak.eu/manual/app-manual.pdf";
 
 API_URL.GET_BALANCE = API_DOMIAN3 + "Balance";
 API_URL.EDIT_ACCOUNT = API_DOMIAN3 + "AccountEdit";
@@ -109,7 +109,7 @@ $$('#app').append(compiledTemplate());
 // Init App
 const app = new Framework7({
     id: 'com.carcitywest.app',
-    name: 'Car City West GPS',
+    name: 'Tracktech by NuTechGPS',
     root: '#app',
     theme: Framework7.device.ios ? 'ios' : 'md',
     view: {
@@ -130,9 +130,9 @@ const app = new Framework7({
             maxPopupWidth = 300;
         }
         return {
-            logo: 'resources/images/logo.png',
-            logoBlack: 'resources/images/logo.png',
-            logoModal: 'resources/images/logo.png',
+            logo: 'resources/images/logo.svg',
+            logoBlack: 'resources/images/logo.svg',
+            logoModal: 'resources/images/logo.svg',
             MaxMapPopupWidth: maxPopupWidth,
             PolygonCustomization: {
                 color: '#AA5959',
@@ -176,13 +176,13 @@ const app = new Framework7({
                 },
             },
             AppDetails: {
-                name: 'CarCityWest-app',
-                code: 41,
-                supportCode: 41,
+                name: 'Tracktech-app',
+                code: 42,
+                supportCode: 42,
                 appId: '',
                 appleId: '1529453003',
                 appVersion: '',
-                supportPhone: '1300885461',
+                supportPhone: '16479370690',
             },
             UTCOFFSET: moment().utcOffset(),
             AccountSolutionArray: [],
@@ -458,7 +458,7 @@ const app = new Framework7({
                 deviceType: localStorage.DEVICE_TYPE,
             };
 
-            self.dialog.progress(LANGUAGE.COM_MSG004,'red');
+            self.dialog.progress(LANGUAGE.COM_MSG004,'custom2');
             self.request.promise.get(API_URL.LOGIN, data, 'json')
                 .then(function (result) {
                     if(result.data && result.data.MajorCode === '000') {

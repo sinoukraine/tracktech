@@ -1,0 +1,86 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "phonegap-plugin-push": {
+      "ANDROID_SUPPORT_V13_VERSION": "27.+",
+      "FCM_VERSION": "17.0.+",
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-buildinfo": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "phonegap-plugin-mobile-accessibility": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-launch-review": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-wkwebview-engine": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-wkwebview-file-xhr": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-safariviewcontroller": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "uk.co.workingedge.phonegap.plugin.istablet": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+      "GOOGLE_API_KEY_FOR_ANDROID": "",
+      "OKHTTP_VERSION": "3.12.0",
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-phone-call": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "phonegap-plugin-multidex": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    },
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "com.carcitywest.app"
+    }
+  }
+}

@@ -66,7 +66,7 @@
                             <ul>
                                 <li class="item-content">
                                     <div class="item-inner ">
-                                        <div class="range-slider range-slider-playback color-red " >
+                                        <div class="range-slider range-slider-playback color-custom2 " >
                                             <input type="range" min="0" max="{{PointsCount}}" step="1" value="0">
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                 <li class="item-content">
                                     <div class="item-inner ">
                                         <div class="item-title width-100 overflow-visible">
-                                            <div class="range-slider range-slider-speed color-red " >
+                                            <div class="range-slider range-slider-speed color-custom2 " >
                                                 <input type="range" name="PlaybackSpeed" min="1" max="16" step="0.5" value="1">
                                             </div>
                                             <div class="item-footer display-flex justify-content-space-between text-color-gray">
@@ -528,7 +528,7 @@
                 for(let event of self.PlaybackFilterEventsList){
                     eventListTemplate +=`<option value="${ event.Value }" data-option-icon="${ event.Icon }" ${event.Selected ? 'selected': ''}>${ event.Name }</option>`
                 }
-
+console.log(mapSettingsObg)
                 let content =   `<div class="sheet-modal" >
                                         <div class="toolbar">
                                               <div class="toolbar-inner">
@@ -548,7 +548,7 @@
                                                         <div class="item-inner">
                                                             <div class="item-title ">${ LANGUAGE.COM_MSG062 }</div>
                                                             <div class="item-after">
-                                                                <div class="toggle color-green">
+                                                                <div class="toggle color-custom2">
                                                                     <input type="checkbox" name="checkbox-map-settings" value="showGeofences" ${ mapSettingsObg && mapSettingsObg.showGeofences ?  'checked' : '' }>
                                                                     <span class="toggle-icon"></span>
                                                                 </div>
@@ -562,7 +562,7 @@
                                                         <div class="item-inner">
                                                             <div class="item-title ">${ LANGUAGE.ASSET_PLAYBACK_MSG01 }</div>
                                                             <div class="item-after">
-                                                                <div class="toggle color-green">
+                                                                <div class="toggle color-custom2">
                                                                     <input type="checkbox" name="checkbox-optimized-route" value="" ${ self.OptimizedRouteState ?  'checked' : '' }>
                                                                     <span class="toggle-icon"></span>
                                                                 </div>
@@ -649,7 +649,7 @@
                                 el: SmartSelectEventsEl,
                                 view: mainView,
                                 openIn: 'popover',
-                                formColorTheme: 'green',
+                                formColorTheme: 'custom2',
                                 on: {
                                     change: function (smartSelect, val) {
                                         for (var i = self.PlaybackFilterEventsList.length - 1; i >= 0; i--) {
@@ -1231,7 +1231,7 @@
                                     el: SmartSelectEl,
                                     view: mainView,
                                     openIn: 'popup',
-                                    formColorTheme: 'green',
+                                    formColorTheme: 'custom2',
                                     searchbar: true,
                                     searchbarPlaceholder: LANGUAGE.COM_MSG002,
                                     appendSearchbarNotFound: LANGUAGE.PROMPT_MSG000,

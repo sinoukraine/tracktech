@@ -26,7 +26,7 @@
         </div>
         <div class="toolbar tabbar toolbar-top">
             <div class="toolbar-inner">
-                <a @click="FilterAssetList" href="#tab1" data-type="all" class="tab-link flex-direction-row tab-link-active">{{@global.LANGUAGE.HOME_MSG01}}<span class="badge color-custom margin-left-quarter">{{AssetsCount.All}}</span></a>
+                <a @click="FilterAssetList" href="#tab1" data-type="all" class="tab-link flex-direction-row tab-link-active">{{@global.LANGUAGE.HOME_MSG01}}<span class="badge color-watch margin-left-quarter">{{AssetsCount.All}}</span></a>
                 <a @click="FilterAssetList" href="#tab2" data-type="live" class="tab-link flex-direction-row">Live<span class="badge color-track margin-left-quarter">{{AssetsCount.Live}}</span></a>
                 <a @click="FilterAssetList" href="#tab3" data-type="loc8" class="tab-link flex-direction-row">Loc8<span class="badge color-loc8 margin-left-quarter">{{AssetsCount.Loc8}}</span></a>
                 <a @click="FilterAssetList" href="#tab4" data-type="protect" class="tab-link flex-direction-row">Protect<span class="badge color-protect margin-left-quarter">{{AssetsCount.Protect}}</span></a>
@@ -44,7 +44,7 @@
         </form>
 
         <div class="fab fab-right-bottom fab-custom fab-viewall ">
-            <a href="/asset-track/?all=true" class="bg-color-darkgray elevation-hover-10 flex-direction-column">
+            <a href="/asset-track/?all=true" class="color-custom2 elevation-hover-10 flex-direction-column">
                 <i class="f7-icons icon-other-view-password"></i>
                 <div class="fab-text">{{@global.LANGUAGE.HOME_MSG02}}</div>
             </a>
@@ -395,7 +395,7 @@
                                                 <ul>
                                                     <li class="item-divider">${ LANGUAGE.COM_MSG042 }</li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom2 item-content popover-close" >
                                                             <input type="radio" name="radio-sort-list" value="name" ${ sortBy === 'name' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -404,7 +404,7 @@
                                                         </label>
                                                     </li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom2 item-content popover-close" >
                                                             <input type="radio" name="radio-sort-list" value="state" ${ sortBy === 'state' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -414,7 +414,7 @@
                                                     </li>
                                                     <li class="item-divider">${ LANGUAGE.COM_MSG045 }</li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom2 item-content popover-close" >
                                                             <input type="radio" name="radio-order-list" value="asc" ${ orderBy === 'asc' ? 'checked' : '' } />
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">
@@ -423,7 +423,7 @@
                                                         </label>
                                                     </li>
                                                     <li>
-                                                        <label class="item-radio color-green item-content popover-close" >
+                                                        <label class="item-radio color-custom2 item-content popover-close" >
                                                             <input type="radio" name="radio-order-list" value="desc" ${ orderBy === 'desc' ? 'checked' : '' }/>
                                                             <i class="icon icon-radio"></i>
                                                             <div class="item-inner">

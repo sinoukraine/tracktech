@@ -45,7 +45,7 @@
         {{/if}}
         {{#unless ViewAll}}
         <div class="fab fab-left-bottom fab-custom with-borders {{#unless SVExist}}disabled{{/unless}}">
-            <a @click="ShowStreetView" href="#" class="bg-color-darkgray elevation-hover-10" data-lat="{{Lat}}" data-lng="{{Lng}}">
+            <a @click="ShowStreetView" href="#" class="color-custom2 elevation-hover-10" data-lat="{{Lat}}" data-lng="{{Lng}}">
                 <i class="pano-preview-img"></i>
             </a>
         </div>
@@ -53,7 +53,7 @@
 
         {{#unless ViewAll}}
         <div class="fab fab-right-bottom fab-custom ">
-            <a href="#" class="bg-color-darkgray elevation-hover-10 flex-direction-column routeButton" data-lat="{{Lat}}" data-lng="{{Lng}}">
+            <a href="#" class="color-custom2 elevation-hover-10 flex-direction-column routeButton" data-lat="{{Lat}}" data-lng="{{Lng}}">
                 <i class="f7-icons icon-other-route"></i>
                 <div class="fab-text">{{@global.LANGUAGE.ASSET_TRACK_MSG20}}</div>
             </a>
@@ -61,7 +61,7 @@
         {{/unless}}
         {{#unless LiveAsset}}
         <div class="fab fab-right-bottom2 fab-custom ">
-            <a @click="GetProtectUpdate" href="#" class="bg-color-darkgray elevation-hover-10 flex-direction-column">
+            <a @click="GetProtectUpdate" href="#" class="color-custom2 elevation-hover-10 flex-direction-column">
                 <i class="f7-icons icon-header-refresh"></i>
                 <div class="fab-text">{{@global.LANGUAGE.COM_MSG057}}</div>
             </a>
@@ -318,7 +318,7 @@
                                                         <div class="item-inner">
                                                             <div class="item-title ">${ LANGUAGE.COM_MSG062 }</div>
                                                             <div class="item-after">
-                                                                <div class="toggle color-green">
+                                                                <div class="toggle color-custom2">
                                                                     <input type="checkbox" name="checkbox-map-settings" value="showGeofences" ${ mapSettingsObg && mapSettingsObg.showGeofences ?  'checked' : '' }>
                                                                     <span class="toggle-icon"></span>
                                                                 </div>
@@ -332,7 +332,7 @@
                                                         <div class="item-inner">
                                                             <div class="item-title ">${ LANGUAGE.COM_MSG108 }</div>
                                                             <div class="item-after">
-                                                                <div class="toggle color-green">
+                                                                <div class="toggle color-custom2">
                                                                     <input type="checkbox" name="checkbox-map-settings" value="showTooltips" ${ mapSettingsObg && mapSettingsObg.showTooltips ?  'checked' : '' }>
                                                                     <span class="toggle-icon"></span>
                                                                 </div>

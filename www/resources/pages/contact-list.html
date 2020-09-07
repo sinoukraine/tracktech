@@ -23,7 +23,7 @@
                         </a>
                     </div>
 
-                    <div class="subnavbar">                      
+                    <div class="subnavbar">
                         <form data-search-container=".contactList" data-search-item="li" data-search-in=".item-title" class="searchbar searchbar-init">
                               <div class="searchbar-inner">
                                     <div class="searchbar-input-wrap">
@@ -35,18 +35,18 @@
                               </div>
                         </form>
                     </div>
-                    
+
                 </div>
             </div>
-        
+
             <!-- Scrollable page content-->
-            <div class="page-content">                
-                <div class="searchbar-backdrop"></div>        
-                           
+            <div class="page-content">
+                <div class="searchbar-backdrop"></div>
+
                 <div class="block searchbar-not-found">
                     <div class="block-inner">{{@global.LANGUAGE.PROMPT_MSG000}}</div>
                 </div>
-                
+
                 <div class="list no-margin-top no-hairlines no-chevron contactList">
                     {{#unless DataLoaded}}
                         <ul key="skeleton-contact-list">
@@ -77,7 +77,7 @@
                         <ul key="contact-list">
                             {{#each Users}}
                             <li data-code="{{this.Code}}">
-                                <a href="#" class="link color-custom ripple-color-red item-menu-button bigger-touch-area userMenu">
+                                <a href="#" class="link color-custom2 ripple-color-orange item-menu-button bigger-touch-area userMenu">
                                     <i class="f7-icons icon-header-menu2 size-18"></i>
                                 </a>
                                 <a href="/contact/?code={{this.Code}}" class="item-link item-content">
@@ -111,7 +111,7 @@
                     {{/unless}}
 
                 </div>
-                
+
             </div>
         </div>
 </template>
@@ -122,11 +122,11 @@
     return {
         data: function () {
             let self = this;
-            
+
             let ret = {
                 Users: [],
-            }; 
-            
+            };
+
             return ret;
         },
         methods: {
@@ -136,7 +136,7 @@
                     let user = self.Users.find(obj => obj.Code === code);
 
                     let text = LANGUAGE.PROMPT_MSG060 +' '+ user.FullName +'.'+' '+LANGUAGE.PROMPT_MSG050;
-                    self.$app.dialog.confirm(text, 
+                    self.$app.dialog.confirm(text,
                         function(){
                             let data = {
                             	MajorToken: self.$app.data.MajorToken,
@@ -164,8 +164,8 @@
                                     }
                                 });
                         }
-                    ); 
-                            
+                    );
+
                 }
             },
             getContactList: function(MajorToken){
@@ -198,9 +198,9 @@
                     });
             },
         },
-       
+
         on: {
-            pageInit: function (e, page) { 
+            pageInit: function (e, page) {
                 let self = this;
 
                 self.getContactList(self.$app.data.MajorToken);
@@ -239,7 +239,7 @@
                     }).open();
                 })
 
-            },   
+            },
 
             pageBeforeIn: function(e, page){
                 let self = this;

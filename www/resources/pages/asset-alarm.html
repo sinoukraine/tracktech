@@ -53,7 +53,7 @@
                         <div class="item-inner">
                             <div class="item-title text-transform-uppercase tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG036}}">{{@global.LANGUAGE.COM_MSG051}} <span class="badge color-lightblue">?</span></div>
                             <div class="item-after">
-                                <label class="toggle toggle-ignore-between color-green">
+                                <label class="toggle toggle-ignore-between color-custom2">
                                     <input type="checkbox" name="IgnoreBetweenState" {{#if IgnoreBetweenState}}checked="checked"{{/if}}>
                                     <span class="toggle-icon"></span>
                                 </label>
@@ -112,7 +112,7 @@
                             <div class="item-inner">
                                 <div class="item-title text-transform-uppercase">{{TurnOnAll.title}}</div>
                                 <div class="item-after">
-                                    <label class="toggle toggle-all-alarm color-green">
+                                    <label class="toggle toggle-all-alarm color-custom2">
                                         <input type="checkbox" name="checkbox-alarm-all" {{#if TurnOnAll.state}}checked="checked"{{/if}}>
                                         <span class="toggle-icon"></span>
                                     </label>
@@ -122,7 +122,7 @@
 
                         {{#each Alarms}}
                         <li>
-                            <label class="item-checkbox item-content color-green">
+                            <label class="item-checkbox item-content color-custom2">
                                 <input type="checkbox" name="checkbox-alarm" value="{{this.val}}" {{#if this.state}}checked="checked"{{/if}}/>
                                 <i class="icon icon-checkbox"></i>
                                 <div class="item-inner">
@@ -142,7 +142,7 @@
                             <div class="item-inner">
                                 <div class="item-title text-transform-uppercase tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG033}}">{{@global.LANGUAGE.ASSET_ALARM_MSG32}} <span class="badge color-lightblue">?</span></div>
                                 <div class="item-after">
-                                    <label class="toggle color-green">
+                                    <label class="toggle color-custom2">
                                         <input type="checkbox" name="checkbox-alarm" class="disablingController" value="67108864" {{#if OfflineState}}checked="checked"{{/if}}>
                                         <span class="toggle-icon"></span>
                                     </label>
@@ -151,7 +151,7 @@
                         </li>
                         {{#OfflineOptions}}
                         <li>
-                            <label class="item-checkbox item-content color-green {{#unless ../OfflineState}}disabled{{/unless}}">
+                            <label class="item-checkbox item-content color-custom2 {{#unless ../OfflineState}}disabled{{/unless}}">
                                 <input type="checkbox" name="offline-option" value="{{Value}}" {{#if State}}checked="checked"{{/if}}/>
                                 <i class="icon icon-checkbox"></i>
                                 <div class="item-inner">
@@ -169,7 +169,7 @@
                             <div class="item-inner">
                                 <div class="item-title text-transform-uppercase tooltip-init " data-tooltip="{{@global.LANGUAGE.PROMPT_MSG034}}<br>{{@global.LANGUAGE.PROMPT_MSG035}}">{{@global.LANGUAGE.ASSET_ALARM_MSG23}} <span class="badge color-lightblue">?</span></div>
                                 <div class="item-after">
-                                    <label class="toggle color-green">
+                                    <label class="toggle color-custom2">
                                         <input type="checkbox" name="checkbox-alarm" class="disablingController" value="32" {{#if OverspeedState}}checked="checked"{{/if}}>
                                         <span class="toggle-icon"></span>
                                     </label>
@@ -177,7 +177,7 @@
                             </div>
                         </li>
                         <li>
-                            <label class="item-radio item-content color-green disablingObj {{#unless OverspeedState}}disabled{{/unless}}">
+                            <label class="item-radio item-content color-custom2 disablingObj {{#unless OverspeedState}}disabled{{/unless}}">
                                 <input type="radio" name="overspeed-type" value="1" {{#js_if ' !this.SpeedingMode || this.SpeedingMode == 1 '}} checked{{/js_if}}/>
                                 <i class="icon icon-radio"></i>
                                 <div class="item-inner">
@@ -187,7 +187,7 @@
                         </li>
 
                         <li>
-                            <label class="item-radio item-content color-green disablingObj {{#unless OverspeedState}}disabled{{/unless}}">
+                            <label class="item-radio item-content color-custom2 disablingObj {{#unless OverspeedState}}disabled{{/unless}}">
                                 <input type="radio" name="overspeed-type" value="2" {{#js_if ' this.SpeedingMode == 2 '}} checked{{/js_if}} />
                                 <i class="icon icon-radio"></i>
                                 <div class="item-inner">
@@ -580,7 +580,7 @@
                     self.DaysOfWeekSelect = self.$app.smartSelect.create({
                         el: daysOfWeekEl,
                         openIn: 'sheet',
-                        formColorTheme: 'green',
+                        formColorTheme: 'custom2',
                         sheetPush: 'true'
                     });
                 });
@@ -1027,7 +1027,7 @@
                         },
                         {
                             text: LANGUAGE.COM_MSG055,
-                            cssClass: 'color-red',
+                            cssClass: 'color-custom2',
                             onClick: function(dialog){
                                 let MaxSpeed = dialog.$el.find('input[name="MaxSpeed"]').val();
 
