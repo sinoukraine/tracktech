@@ -20,19 +20,19 @@
                     <div class="right">
                         <!-- <a href="#" class="link">
                                                  <i class="f7-icons icon-notification"></i>
-                                             </a>    -->                     
+                                             </a>    -->
                     </div>
-                    
+
                 </div>
-            </div>          
-        
+            </div>
+
             <!-- Scrollable page content-->
             <div class="page-content">
-                
+
                 <div class="block-title text-color-darkgray">{{@global.LANGUAGE.CREDIT_RECHARGE_MSG00}}</div>
                 <div class="block">
                     <p>{{@global.LANGUAGE.PROMPT_MSG061}}</p>
-                </div>                
+                </div>
                 <div class="row no-gap ">
                     {{#Cards}}
                     <div class="col-100 small-33">
@@ -64,28 +64,34 @@
 
             var CountryCode = self.$app.methods.getFromStorage('userInfo').CountryCode;
 
-            let buttons = {
+            /*let buttons = {
                 button10: 'XTKUPGEYWZ3T4',
                 button50: 'KWC3YWFGZTW28',
                 button100: 'QTULPNEWWN6CN',
                 currency: 'USD'
+            };*/
+            let buttons = {
+                button10: 'FSMSLCFUPE954',
+                button50: 'GFBCR2TX9XEJL',
+                button100: 'MFCNEYY4R5WHG',
+                currency: 'CAD'
             };
 
-            switch (CountryCode){
+            /*switch (CountryCode){
                 case 'AUS':
                     buttons.button10  = 'WTEPHVZ7VLF7C';
                     buttons.button50  = 'F5QPW8CA2USAE';
                     buttons.button100 = '8SPGQTA6M3P84';
                     buttons.currency = 'AUD';
                     break;
-                /*case 'CAN':
+                /!*case 'CAN':
                     buttons.button10  = 'FSMSLCFUPE954';
                     buttons.button50  = 'GFBCR2TX9XEJL';
                     buttons.button100 = 'MFCNEYY4R5WHG';
                     buttons.currency = 'CAD';
-                    break;*/
-            }
-                
+                    break;*!/
+            }*/
+
                 ret.Cards = [
                     {
                         BgColor: 'bg-color-red',
@@ -113,7 +119,7 @@
         },
         methods: {
             questionModal: function(){
-                var self = this;           
+                var self = this;
 
                 self.$app.dialog.create({
                        title: `<div class="custom-modal-logo-wrapper"><img class="custom-modal-logo" src="${self.$root.logoModal}" alt=""/></div>`,
@@ -121,8 +127,8 @@
                      buttons: [
                                 {
                                     text: LANGUAGE.COM_MSG067,
-                                    onClick: function() {                            
-                                        self.$app.methods.checkBalance(true);                            
+                                    onClick: function() {
+                                        self.$app.methods.checkBalance(true);
                                     }
                                 },
                                 {
@@ -134,7 +140,7 @@
             }
         },
         on: {
-            pageInit: function (e, page) { 
+            pageInit: function (e, page) {
                 var self = this;
 
                 var buttons = page.$el.find('.card-footer a');

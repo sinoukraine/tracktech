@@ -49,11 +49,13 @@ API_URL.GEOFENCE_DELETE = API_DOMIAN1 + "Device/FenceDelete";
 
 API_URL.URL_ROUTE = "https://www.google.com/maps/dir/?api=1&destination={0},{1}";
 API_URL.URL_ROUTE_IOS = "maps://maps.apple.com/maps?daddr={0},{1}";
-API_URL.URL_SUPPORT = "https://support.tracktech.quiktrak.eu/";
+//API_URL.URL_SUPPORT = "https://support.tracktech.quiktrak.eu/";
+API_URL.URL_SUPPORT = "https://support.nutechgps.com/";
 API_URL.URL_REPORT_THEFT = "https://forms.quiktrak.com.au/report-theft/";
 API_URL.URL_UPGRADE = "https://activation.tracktech.quiktrak.eu/";
 API_URL.REFERRAL_PROGRAM = "https://forms.quiktrak.com.au/referral-program/";
-API_URL.URL_USER_GUIDE = "https://support.tracktech.quiktrak.eu/manual/app-manual.pdf";
+//API_URL.URL_USER_GUIDE = "https://support.tracktech.quiktrak.eu/manual/app-manual.pdf";
+API_URL.URL_USER_GUIDE = "https://support.nutechgps.com/manual/app-manual.pdf";
 
 API_URL.GET_BALANCE = API_DOMIAN3 + "Balance";
 API_URL.EDIT_ACCOUNT = API_DOMIAN3 + "AccountEdit";
@@ -358,6 +360,9 @@ const app = new Framework7({
                 if (!localStorage.PUSH_MOBILE_TOKEN) {
                     localStorage.PUSH_MOBILE_TOKEN = uid;
                 }
+                if (!localStorage.PUSH_DEVICE_TOKEN) {
+                    localStorage.PUSH_DEVICE_TOKEN = uid;
+                }
                 localStorage.PUSH_APP_KEY = BuildInfo.packageName;
                 localStorage.PUSH_APPID_ID = BuildInfo.packageName;
                 localStorage.DEVICE_TYPE = self.device.ios ? 'iOS' : 'android';
@@ -369,7 +374,7 @@ const app = new Framework7({
                 if (!localStorage.PUSH_DEVICE_TOKEN)
                     localStorage.PUSH_DEVICE_TOKEN = uid;
                 //localStorage.PUSH_DEVICE_TOKEN = "75ba1639-92ae-0c4c-d423-4fad1e48a49d"
-                localStorage.PUSH_APPID_ID = 'android.app.quiktrak.eu.quiktrak.new';
+                localStorage.PUSH_APPID_ID = 'android.app.quiktrak.eu.tracktech';
                 localStorage.DEVICE_TYPE = self.device.ios ? 'iOS' : 'android';
             }
         },
@@ -435,6 +440,7 @@ const app = new Framework7({
 
 
             self.methods.clearUserInfo();
+            self.methods.unregisterPush();
             self.loginScreen.open('.login-screen');
 
         },
@@ -622,9 +628,9 @@ const app = new Framework7({
                         additionalFlags.importantNoticeSimIssue = true;
                     }
 
-                }else*/ /*if(!additionalFlags.modalReview && additionalFlags.firstLoginDone){
+                }else*/ if(!additionalFlags.modalReview && additionalFlags.firstLoginDone){
                     self.methods.showAskForReview();
-                }*/
+                }
 
                 if(!additionalFlags.firstLoginDone){
                     additionalFlags.firstLoginDone = true;
