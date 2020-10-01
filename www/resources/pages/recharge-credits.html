@@ -71,11 +71,14 @@
                 currency: 'USD'
             };*/
             let buttons = {
-                button10: 'FSMSLCFUPE954',
-                button50: 'GFBCR2TX9XEJL',
-                button100: 'MFCNEYY4R5WHG',
+                button10: 'RFXE28HLSXTB2',
+                button50: 'AXD95A2FCJJNW',
+                button100: '2PZ7G3TCNWGME',
                 currency: 'CAD'
             };
+//https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RFXE28HLSXTB2
+            //https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AXD95A2FCJJNW
+            //https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PZ7G3TCNWGME
 
             /*switch (CountryCode){
                 case 'AUS':
@@ -96,19 +99,19 @@
                     {
                         BgColor: 'bg-color-red',
                         Amount: '100 ' + LANGUAGE.COM_MSG069,
-                        Price: '$ '+'18.00 ' + buttons.currency,
+                        Price: '$ '+'25.00 ' + buttons.currency,
                         Link: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id='+buttons.button100+'&on0=KEY&os0='+self.$app.data.MinorToken+'&on1=dn&os1='+self.$root.AppDetails.code+'&on2=other&os2='+self.$root.AppDetails.name+'',
                     },
                     {
                         BgColor: 'bg-color-green',
                         Amount: '50 ' + LANGUAGE.COM_MSG069,
-                        Price: '$ '+'10.00 ' + buttons.currency,
+                        Price: '$ '+'15.00 ' + buttons.currency,
                         Link: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id='+buttons.button50+'&on0=KEY&os0='+self.$app.data.MinorToken+'&on1=dn&os1='+self.$root.AppDetails.code+'&on2=other&os2='+self.$root.AppDetails.name+'',
                     },
                     {
                         BgColor: 'bg-color-darkgray',
                         Amount: '10 ' + LANGUAGE.COM_MSG069,
-                        Price: '$ '+'3.00 ' + buttons.currency,
+                        Price: '$ '+'5.00 ' + buttons.currency,
                         Link: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id='+buttons.button10+'&on0=KEY&os0='+self.$app.data.MinorToken+'&on1=dn&os1='+self.$root.AppDetails.code+'&on2=other&os2='+self.$root.AppDetails.name+'',
                     },
 
