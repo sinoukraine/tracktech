@@ -24,13 +24,13 @@
             </div>
             <div class="page-content">
                 <div class="panel-header bg-custom bg-header">
-                    <span class="app-version text-color-white">{{AppVersion}}</span>
+                    <span class="app-version text-color-gray">{{AppVersion}}</span>
                     <div class="block no-margin padding">
                         <div class="logo">
                             <img src="{{Logo}}" alt="">
                         </div>
-                        <p class="text-color-white no-margin-bottom">{{FirstName}} {{LastName}}</p>
-                        <p class="text-color-white no-margin">{{Email}}</p>
+                        <p class="text-color-black no-margin-bottom">{{FirstName}} {{LastName}}</p>
+                        <p class="text-color-black no-margin">{{Email}}</p>
                     </div>
                 </div>
                 <div class="list no-hairlines no-hairlines-between no-chevron margin-top-half">
@@ -197,7 +197,7 @@
                  })
             },
             logout: function () {
-                this.$app.methods.unregisterPush();
+                //this.$app.methods.unregisterPush();
                 this.$app.methods.logout();
             }
         },

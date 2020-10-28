@@ -1291,6 +1291,7 @@ console.log(mapSettingsObg)
                                         MinorToken: self.$root.MinorToken,
                                         Recipients: recipients,
                                         displayTimeZone: self.$app.methods.findTimeZoneNameByOffset(offsetZZformat),
+                                        Logo: self.$app.data.logoExternal,
                                     };
 
                                     self.$app.methods.sendReportPlaybackOnEmail(data, function(){

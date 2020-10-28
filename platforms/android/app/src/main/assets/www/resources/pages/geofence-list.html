@@ -148,7 +148,7 @@
                         let ret = `
                             <li data-index="${index}" data-code="${item.Code}" data-state="${item.State}" data-name="${item.Name}">`;
                         if (item.CustomerCode === self.$root.MajorToken){
-                            ret+=`  <a href="#" class="link color-custom ripple-color-red item-menu-button bigger-touch-area geofenceMenu">
+                            ret+=`  <a href="#" class="link color-custom2 ripple-color-orange item-menu-button bigger-touch-area geofenceMenu">
                                         <i class="f7-icons icon-header-menu2 size-18"></i>
                                     </a>`;
                         }
@@ -347,7 +347,7 @@
                                     <div class="action_button_block action_button_text">
                                         ${ LANGUAGE.COM_MSG059}
                                     </div>
-                                    <div class="toggle color-green">
+                                    <div class="toggle color-custom2">
                                         <input type="checkbox" name="checkbox-active" ${ state ? 'checked="checked"' : '' }>
                                         <span class="toggle-icon"></span>
                                     </div>

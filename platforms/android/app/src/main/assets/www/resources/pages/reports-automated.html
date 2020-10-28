@@ -42,7 +42,7 @@
                         </div>
                     </li>
                     <li>
-                        <a key="key-asset-list" class="item-link smart-select smart-select-init smart-select-asset-list custom-smart-select" data-open-in="popup" data-form-color-theme="green" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
+                        <a key="key-asset-list" class="item-link smart-select smart-select-init smart-select-asset-list custom-smart-select" data-open-in="popup" data-form-color-theme="custom2" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
                             <select name="Assets" multiple required validate>
                                 {{#AssetList}}
                                     <option value="{{Id}}" {{#if Selected}}selected{{/if}}>{{Name}}</option>
@@ -72,7 +72,7 @@
                         </div>
                     </li>
                     <li>
-                        <a key="key-schedule-types" class="item-link smart-select smart-select-init smart-select-alarm-types" data-open-in="sheet" data-form-color-theme="green" data-close-on-select="true">
+                        <a key="key-schedule-types" class="item-link smart-select smart-select-init smart-select-alarm-types" data-open-in="sheet" data-form-color-theme="custom2" data-close-on-select="true">
                             <select name="ScheduleTypes" required validate>
                                 {{#each ScheduleOptions }}
                                 <option value="{{this.val}}" {{#if this.selected}} selected {{/if}}>{{this.name}}</option>
@@ -90,7 +90,7 @@
                     </li>
                     {{#js_if "this.ScheduleSelected === 1"}}
                     <li>
-                        <a key="key-weekdays-options" class="item-link smart-select smart-select-init smart-select-weekdays-options" data-open-in="sheet" data-form-color-theme="green" data-close-on-select="true">
+                        <a key="key-weekdays-options" class="item-link smart-select smart-select-init smart-select-weekdays-options" data-open-in="sheet" data-form-color-theme="custom2" data-close-on-select="true">
                             <select name="IntervalValue" required validate>
                                 {{#each WeekdayOptions }}
                                 <option value="{{this.val}}" {{#if this.selected}} selected {{/if}}>{{this.name}}</option>
@@ -109,7 +109,7 @@
                     {{/js_if}}
                     {{#js_if "this.ScheduleSelected === 3"}}
                     <li>
-                        <a key="key-monthdays-options" class="item-link smart-select smart-select-init smart-select-monthdays-options" data-open-in="sheet" data-form-color-theme="green" data-close-on-select="true">
+                        <a key="key-monthdays-options" class="item-link smart-select smart-select-init smart-select-monthdays-options" data-open-in="sheet" data-form-color-theme="custom2" data-close-on-select="true">
                             <select name="IntervalValue" required validate>
                                 {{#each MonthdayOptions }}
                                 <option value="{{this.val}}" {{#if this.selected}} selected {{/if}}>{{this.name}}</option>
@@ -127,7 +127,7 @@
                     </li>
                     {{/js_if}}
                     <li >
-                        <a class="item-link smart-select smart-select-init smart-select-notify-list custom-smart-select" data-open-in="popup" data-searchbar="true" data-form-color-theme="green" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.GEOFENCES_MSG10}}">
+                        <a class="item-link smart-select smart-select-init smart-select-notify-list custom-smart-select" data-open-in="popup" data-searchbar="true" data-form-color-theme="custom2" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.GEOFENCES_MSG10}}">
                             <select name="NotifyEmails" multiple  required validate >
                                 {{#ContactList}}
                                 {{#if EMail}}
@@ -190,7 +190,7 @@
                         <div class="item-inner">
                             <div class="item-title text-transform-uppercase tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG116}}">{{@global.LANGUAGE.GEOFENCES_MSG09}} <span class="badge color-lightblue">?</span></div>
                             <div class="item-after">
-                                <label class="toggle toggle-ignore-between color-green">
+                                <label class="toggle toggle-ignore-between color-custom2">
                                     <input type="checkbox" name="State" {{#if State}}checked="checked"{{/if}}>
                                     <span class="toggle-icon"></span>
                                 </label>

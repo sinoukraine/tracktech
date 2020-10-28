@@ -357,6 +357,7 @@
                         State: formEl.find('[name="State"]').is(":checked") ? 1 : 0,
                         Assets: Array.isArray(assets) ? assets.toString() : '',
                         NotifyEmails: Array.isArray(contacts) ? contacts.toString() : '',
+                        Logo: self.$app.data.logoExternal,
                     };
                     if (self.$route.query.code) {
                         data.Code = self.$route.query.code;

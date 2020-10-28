@@ -150,7 +150,7 @@
                         </div>
                     </li>
                     <li>
-                        <a class="item-link smart-select smart-select-init" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="green" data-sheet-push="true">
+                        <a class="item-link smart-select smart-select-init" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="custom2" data-sheet-push="true">
                             <select name="AssetType" >
                                 {{#AssetTypes}}
                                 <option value="{{this}}" {{#js_if "this == ../AssetType "}} selected {{/js_if}}>{{this}}</option>
@@ -167,7 +167,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="item-link smart-select smart-select-init" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="green" data-sheet-push="true">
+                        <a class="item-link smart-select smart-select-init" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="custom2" data-sheet-push="true">
                             <select name="Unit" >
                                 <option value="KPH" {{#js_if "this.Unit == 'KPH' "}} selected {{/js_if}}>km/h</option>
                                 <option value="MPH" {{#js_if "this.Unit == 'MPH' "}} selected {{/js_if}}>mile/h</option>
@@ -496,7 +496,7 @@
 
                 $.each(iconNames, function(index, value){
                     iconTemplate +=  '<li >'+
-                        '<label class="item-radio item-content color-green">';
+                        '<label class="item-radio item-content color-custom2">';
                     if (iconName && iconName == value.fontName) {
                         iconTemplate +=         '<input type="radio" name="radio-icon" data-file-name="'+value.fileName+'" data-font-name="'+value.fontName+'" checked >'+
                             '<div class="item-media"><i class="icon color-red size-25 asset-icon-'+value.fontName+'"></i></div>';
@@ -555,8 +555,8 @@
                             popup.$el.find('input[type="radio"]').on('change', function(){
                                 let parent = $$(this).closest('.item-radio');
 
-                                radioWrapper.removeClass('color-green');
-                                parent.find('.item-media i').addClass('color-green');
+                                radioWrapper.removeClass('color-custom2');
+                                parent.find('.item-media i').addClass('color-custom2');
                             });
 
                             popup.$el.find('.saveNewIcon').on('click', function(){

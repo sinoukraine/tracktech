@@ -12,6 +12,7 @@ const API_DOMIAN6 = "https://nomad.sinopacific.com.ua/";
 const API_DOMIAN7 = "https://nominatim.sinopacific.com.ua/";
 const API_DOMIAN8 = "https://nominatim.openstreetmap.org/";
 const API_DOMIAN9 = "https://upload.quiktrak.co/";
+const API_DOMIAN10 = "https://m2mdata03.sinopacific.com.ua/";
 
 const API_URL = {};
 
@@ -68,10 +69,13 @@ API_URL.CONTACT_USER_DELETE = API_DOMIAN1 + "User/Delete";
 
 API_URL.GET_PLAYBACK_ARR = API_DOMIAN1 + "Device/GetHisPosArray2";
 API_URL.GET_PLAYBACK_ARR_OPTIMISED = "https://osrm.sinopacific.com.ua/playback/v2";
+
 API_URL.GET_ADDRESSES_FROM_ARRAY = API_DOMIAN5 + "geocode/reverse/v1/";
 API_URL.GET_SPEEDLIMIT = API_DOMIAN5 + "speedlimits/v1";
 API_URL.GET_PLAYBACK_REPORT_ON_MAIL = API_DOMIAN6 + "api/v2/reports/Playback";
+//API_URL.GET_PLAYBACK_REPORT_ON_MAIL = API_DOMIAN10 + "api/v2/reports/Playback";
 
+//https://m2mdata03.sinopacific.com.ua/api/v2/reports/Playback
 API_URL.GET_REPORT_ALERTLIST = API_DOMIAN1 + "Report/GetAlertList";
 API_URL.GET_REPORT_TRIP = API_DOMIAN1 + "Report/GetTripReport";
 API_URL.GET_REPORT_OVERVIEW = API_DOMIAN1 + "Report/GetOverview";
@@ -135,6 +139,7 @@ const app = new Framework7({
             logo: 'resources/images/logo.svg',
             logoBlack: 'resources/images/logo.svg',
             logoModal: 'resources/images/logo.svg',
+            logoExternal: 'https://www.nutechgps.com/Attached/WebSites/nutech/img/logo.png',
             MaxMapPopupWidth: maxPopupWidth,
             PolygonCustomization: {
                 color: '#AA5959',
@@ -2433,7 +2438,7 @@ const app = new Framework7({
                         text: LANGUAGE.COM_MSG055,
                         //bold: true,
                         onClick: function () {
-                            mainView.router.navigate('/credit-recharge/');
+                            mainView.router.navigate('/recharge-credits/');
                         }
                     },
                 ]

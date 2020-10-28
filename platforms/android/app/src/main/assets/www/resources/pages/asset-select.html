@@ -13,7 +13,7 @@
                         </a>
                     </div>
                     <div class="title sliding">{{PageTitle}}</div>
-                    <div class="right">                        
+                    <div class="right">
                        <!-- <a href="#" class="link icon-only filterMenuOpen" >
                             <i class="f7-icons icon-filter size-18"></i>
                         </a>    -->
@@ -25,15 +25,15 @@
                     <!--<div class="subnavbar">
 
                     </div>-->
-                    
+
                 </div>
             </div>
 
             <div class="toolbar tabbar toolbar-top">
                 <div class="toolbar-inner">
-                    <a @click="FilterAssetList" href="#asset-select-tab2" data-type="live" class="tab-link flex-direction-row tab-link-active">Live<span class="badge color-custom margin-left-quarter">{{AssetsCount.Live}}</span></a>
-                    <a @click="FilterAssetList" href="#asset-select-tab3" data-type="loc8" class="tab-link flex-direction-row">Loc8<span class="badge color-custom margin-left-quarter">{{AssetsCount.Loc8}}</span></a>
-                    <a @click="FilterAssetList" href="#asset-select-tab4" data-type="protect" class="tab-link flex-direction-row">Protect<span class="badge color-custom margin-left-quarter">{{AssetsCount.Protect}}</span></a>
+                    <a @click="FilterAssetList" href="#asset-select-tab2" data-type="live" class="tab-link flex-direction-row tab-link-active">Live<span class="badge color-track margin-left-quarter">{{AssetsCount.Live}}</span></a>
+                    <a @click="FilterAssetList" href="#asset-select-tab3" data-type="loc8" class="tab-link flex-direction-row">Loc8<span class="badge color-loc8 margin-left-quarter">{{AssetsCount.Loc8}}</span></a>
+                    <a @click="FilterAssetList" href="#asset-select-tab4" data-type="protect" class="tab-link flex-direction-row">Protect<span class="badge color-protect margin-left-quarter">{{AssetsCount.Protect}}</span></a>
                 </div>
             </div>
 
@@ -65,24 +65,24 @@
                 </div>
                 {{#js_if "this.Type === 'multiple'"}}
                 <div class="list no-margin searchbar-hide-on-search">
-                    <ul>                    
+                    <ul>
                         <li class="item-content">
                             <div class="item-inner">
                                 <div class="item-title text-transform-uppercase">{{@global.LANGUAGE.COM_MSG093}}</div>
                                 <div class="item-after">
-                                    <label class="toggle toggle-all-assets color-green">
+                                    <label class="toggle toggle-all-assets color-custom2">
                                         <input type="checkbox" name="checkbox-assets-all">
                                         <span class="toggle-icon"></span>
                                     </label>
                                 </div>
                             </div>
-                        </li>   
-                    </ul> 
-                </div>                
+                        </li>
+                    </ul>
+                </div>
                 {{/js_if}}
                 <div class="list virtual-list no-hairlines no-margin no-chevron searchbar-found assetListSelect " data-filter-type="live" data-sort-by="name" data-order-by="asc">
-                </div>                     
-                
+                </div>
+
             </form>
         </div>
 </template>
@@ -93,7 +93,7 @@
     return {
         data: function () {
             let self = this;
-            
+
             let ret = {
                 PageTitle: LANGUAGE.ASSET_SELECT_MSG01,
                 Type: self.$route.query.type,
@@ -112,11 +112,11 @@
             if (self.$route.query.type === 'multiple') {
                 ret.PageTitle = LANGUAGE.ASSET_SELECT_MSG00;
             }
-            
+
             return ret;
         },
         methods: {
-            submitAssets: function(virtualAssetList){  
+            submitAssets: function(virtualAssetList){
                 let self = this;
                 let assets = [];
 
@@ -126,7 +126,7 @@
                     }
                 }
 
-                if (assets.length > 0) {                    
+                if (assets.length > 0) {
                     mainView.router.navigate({
                         name: self.NextPage,
                         query: {
@@ -163,7 +163,7 @@
             },
         },
         on: {
-            pageInit: function (e, page) { 
+            pageInit: function (e, page) {
                 let self = this;
                 let toggleAllEl = page.$el.find('.toggle-all-assets');
                 let assetListEl = page.$el.find('.assetListSelect');
@@ -210,7 +210,7 @@
                 }
 
                 self.VirtualAssetList = self.$app.virtualList.create({
-                    el: assetListEl, 
+                    el: assetListEl,
                     // search item by item
                     searchAll: function (query, items) {
                         let filterType = this.el.data('filter-type');
@@ -227,13 +227,13 @@
                     height: self.$app.theme === 'ios' ? 76 : 76,
                     emptyTemplate: `<li class="item-content">${LANGUAGE.COM_MSG040}</li>`,
                     // Display the each item using Template7 template parameter
-                    renderItem: function (item, index) {                  
+                    renderItem: function (item, index) {
                         let ret = '';
                         let assetImg = self.$app.methods.getAssetImg(item, {'assetList':true});
 
                         if (self.Type === 'multiple') {
                             ret =  `<li data-index="${ index }" title="${ item.Name }" >
-                                            <label class="item-checkbox item-content color-green ">
+                                            <label class="item-checkbox item-content color-custom2 ">
                                                 <input type="checkbox" name="checkbox-asset" value="" data-imei="${ item.IMEI }" ${ item.Selected ? 'checked="true"' : '' } >
                                                 <div class="item-media">${ assetImg }</div>
                                                 <div class="item-inner">
@@ -248,7 +248,7 @@
                                         </li>`;
                         }else{
                             ret =  `<li data-index="${ index }" title="${ item.Name }" >
-                                        <label class="item-radio item-content color-green ">
+                                        <label class="item-radio item-content color-custom2 ">
                                             <input type="radio" name="checkbox-asset" value="" data-imei="${ item.IMEI }"  />
                                             <div class="item-media">${ assetImg }</div>
                                             <div class="item-inner">
@@ -280,14 +280,14 @@
                     let index = $$(this).closest('li').data('index');
                     if (self.Type === 'multiple') {
                         self.VirtualAssetList.items[index].Selected = !!this.checked;
-                    }else{                        
+                    }else{
                         for (let i = self.VirtualAssetList.items.length - 1; i >= 0; i--) {
-                            self.VirtualAssetList.items[i].Selected = false;  
+                            self.VirtualAssetList.items[i].Selected = false;
                         }
                         self.VirtualAssetList.items[index].Selected = true;
                     }
                 });
-                
+
             },
             pageAfterIn:function(){
                 let self = this;
@@ -302,7 +302,7 @@
             },
             pageBeforeRemove: function () {
                 let self = this;
-               
+
                 if (self.ToggleAllAssets) {
                     self.$app.toggle.destroy(self.ToggleAllAssets);
                 }

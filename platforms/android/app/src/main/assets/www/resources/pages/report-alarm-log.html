@@ -55,7 +55,7 @@
                             </div>
                         </li>
                         <li>
-                            <a key="key-asset-list" class="item-link smart-select smart-select-init smart-select-asset-list custom-smart-select" data-open-in="popup" data-form-color-theme="green" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
+                            <a key="key-asset-list" class="item-link smart-select smart-select-init smart-select-asset-list custom-smart-select" data-open-in="popup" data-form-color-theme="custom2" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
                                 <select name="Assets" multiple required validate>
                                     {{#AssetList}}
                                     <option value="{{Id}}" selected>{{Name}}</option>
@@ -73,7 +73,7 @@
                         </li>
                         {{#if AlertListShow}}
                         <li key="key-alert-list-list">
-                            <a class="item-link smart-select smart-select-init custom-smart-select  custom-smart-select-alert-list {{#unless AlertList}}disabled tooltip-init{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="green" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG093}}">
+                            <a class="item-link smart-select smart-select-init custom-smart-select  custom-smart-select-alert-list {{#unless AlertList}}disabled tooltip-init{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="custom2" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG093}}">
                                 <select name="AlertList" multiple >
                                     {{#AlertList}}
                                     {{#if CustomName}}
@@ -107,7 +107,7 @@
                         </li>
                         {{/if}}
                         <li>
-                            <a class="item-link smart-select smart-select-init" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="green" data-sheet-push="true">
+                            <a class="item-link smart-select smart-select-init" data-open-in="sheet" data-close-on-select="true" data-form-color-theme="custom2" data-sheet-push="true">
                                 <select name="GroupBy" >
                                     <option value="alert">{{@global.LANGUAGE.COM_MSG098}}</option>
                                     <option value="asset" selected>{{@global.LANGUAGE.COM_MSG096}}</option>
@@ -125,7 +125,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
             </form>
         </div>
 </template>
@@ -160,7 +160,7 @@
 
             };
 
-            
+
             return ret;
         },
         methods: {
@@ -210,7 +210,7 @@
             },
         },
         on: {
-            pageInit: function (e, page) { 
+            pageInit: function (e, page) {
                 let self = this;
                 let toggleAllEl = page.$el.find('.toggle-all-assets');
                 let assetListEl = page.$el.find('.alarmLogAssetListSelect');
@@ -238,9 +238,9 @@
                     let index = $$(this).closest('li').data('index');
                     if (self.Type === 'multiple') {
                         self.VirtualAssetList.items[index].Selected = !!this.checked;
-                    }else{                        
+                    }else{
                         for (let i = self.VirtualAssetList.items.length - 1; i >= 0; i--) {
-                            self.VirtualAssetList.items[i].Selected = false;  
+                            self.VirtualAssetList.items[i].Selected = false;
                         }
                         self.VirtualAssetList.items[index].Selected = true;
                     }
@@ -266,7 +266,7 @@
                     self.submitForm(data, additionalData);
                     return false;
                 });
-                
+
             },
             pageBeforeRemove: function () {
                 let self = this;

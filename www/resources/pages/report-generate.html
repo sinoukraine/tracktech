@@ -445,6 +445,7 @@
                         MajorToken: self.$app.data.MajorToken,
                         From: moment.utc(self.CalendarStartDateTime.getValue()[0]).format(window.COM_TIMEFORMAT),
                         To: moment.utc(self.CalendarEndDateTime.getValue()[0]).format(window.COM_TIMEFORMAT),
+                        Logo: self.$app.data.logoExternal,
                         IMEIs: assetsEl.val(),
                         Emails: contactsEl.val(),
                         Export: 'PDF'

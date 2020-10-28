@@ -29,7 +29,7 @@
                 <div class="list no-hairlines">
                     <ul>
                         <li>
-                            <a key="key-asset-list" class="item-link smart-select smart-select-init custom-smart-select smart-select-asset-list" data-open-in="popup" data-form-color-theme="green" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
+                            <a key="key-asset-list" class="item-link smart-select smart-select-init custom-smart-select smart-select-asset-list" data-open-in="popup" data-form-color-theme="custom2" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
                                 <select name="Assets" multiple required validate>
                                     {{#AssetList}}
                                     <option value="{{IMEI}}" data-id="{{Id}}" selected>{{Name}}</option>
@@ -75,7 +75,7 @@
                         {{#js_if "this.ReportType == '1'"}}
                             {{#if GeofenceListShow}}
                             <li key="key-geofence-list">
-                                <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-geofence-list {{#unless GeofenceList}}disabled tooltip-init{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="green" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG092}}">
+                                <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-geofence-list {{#unless GeofenceList}}disabled tooltip-init{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="custom2" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG092}}">
                                     <select name="GeofenceList" multiple >
                                         {{#GeofenceList}}
                                         <option value="{{Code}}" selected>{{Name}}</option>
@@ -107,7 +107,7 @@
                             </li>
                             {{/if}}
                             <li key="key-overview-options-list">
-                                <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-overview-options-list" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="green">
+                                <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-overview-options-list" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="custom2">
                                     <select name="OverviewOptionsList" multiple >
                                         {{#OverviewOptionsList}}
                                         <option value="{{Value}}" selected>{{Name}}</option>
@@ -128,7 +128,7 @@
                         {{#js_if "this.ReportType == '1' || this.ReportType == '3'" }}
                             {{#if AlertListShow}}
                             <li key="key-alert-list-list">
-                                <a class="item-link smart-select smart-select-init custom-smart-select  custom-smart-select-alert-list {{#unless AlertList}}disabled tooltip-init{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="green" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG093}}">
+                                <a class="item-link smart-select smart-select-init custom-smart-select  custom-smart-select-alert-list {{#unless AlertList}}disabled tooltip-init{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-form-color-theme="custom2" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG093}}">
                                     <select name="AlertList" multiple >
                                         {{#AlertList}}
                                             {{#if CustomName}}
@@ -165,7 +165,7 @@
 
                         {{#js_if "this.ReportType == '2'"}}
                         <!--<li class="item-content item-input ">
-                            <label class="item-media checkbox color-green">
+                            <label class="item-media checkbox color-custom2">
                                 <input type="checkbox" name="MovementState" {{#if MovementState}}checked{{/if}}><i class="icon-checkbox"></i>
                             </label>
                             <div class="item-inner">
@@ -176,7 +176,7 @@
                             </div>
                         </li>-->
                         <!--<li class="item-content item-input ">
-                            <label class="item-media checkbox color-green">
+                            <label class="item-media checkbox color-custom2">
                                 <input type="checkbox" name="StationaryState" {{#if StationaryState}}checked{{/if}}><i class="icon-checkbox"></i>
                             </label>
                             <div class="item-inner">
@@ -200,7 +200,7 @@
                         {{/js_if}}
                         {{#js_if "this.ReportType == '5'"}}
                         <li class="item-content item-input ">
-                            <label class="item-media checkbox color-green">
+                            <label class="item-media checkbox color-custom2">
                                 <input type="checkbox" name="IgnitionOnState" {{#if IgnitionOnState}}checked{{/if}}><i class="icon-checkbox"></i>
                             </label>
                             <div class="item-inner">
@@ -212,7 +212,7 @@
                         </li>
 
                         <li class="item-content item-input ">
-                            <label class="item-media checkbox color-green">
+                            <label class="item-media checkbox color-custom2">
                                 <input type="checkbox" name="IgnitionOffState" {{#if IgnitionOffState}}checked{{/if}}><i class="icon-checkbox"></i>
                             </label>
                             <div class="item-inner">
@@ -226,7 +226,7 @@
 
                         <li class="item-divider">{{@global.LANGUAGE.PROMPT_MSG102}}</li>
                         <li>
-                            <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-contact-list {{#unless ContactList}}disabled{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG077}}" data-form-color-theme="green">
+                            <a class="item-link smart-select smart-select-init custom-smart-select custom-smart-select-contact-list {{#unless ContactList}}disabled{{/unless}}" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG077}}" data-form-color-theme="custom2">
                                 <select name="ContactList" multiple validate {{#unless CustomEmail}}required{{/unless}}>
                                 {{#ContactList}}
                                 {{#if EMail}}
@@ -260,7 +260,7 @@
                     </ul>
                 </div>
 
-                
+
             </form>
         </div>
 </template>
@@ -383,9 +383,9 @@
 
 
         },
-       
+
         on: {
-            pageInit: function (e, page) { 
+            pageInit: function (e, page) {
                 let self = this;
                 let startDateTimeEl = page.$el.find('[name="StartDateTime"]');
                 let endDateTimeEl = page.$el.find('[name="EndDateTime"]');

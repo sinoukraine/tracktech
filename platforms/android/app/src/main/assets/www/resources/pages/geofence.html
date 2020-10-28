@@ -37,7 +37,7 @@
             <div class="list no-hairline-bottom no-margin-top">
                 <ul>
                     <li>
-                        <a key="key-asset-list" class="item-link smart-select smart-select-asset-list custom-smart-select" data-open-in="popup" data-form-color-theme="green" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
+                        <a key="key-asset-list" class="item-link smart-select smart-select-asset-list custom-smart-select" data-open-in="popup" data-form-color-theme="custom2" data-searchbar="true" data-searchbar-placeholder="{{@global.LANGUAGE.COM_MSG002}}" data-append-searchbar-not-found="{{@global.LANGUAGE.PROMPT_MSG000}}" data-page-title = "{{@global.LANGUAGE.COM_MSG065}}" >
                             <select name="Assets" multiple required validate>
                                 {{#AssetList}}
                                     <option value="{{IMEI}}" {{#if AssetSelected}}selected{{/if}}>{{Name}}</option>
@@ -77,7 +77,7 @@
                                 <div class="item-input-wrap">
                                     <textarea class="resizable" name="Address" maxlength="1000">{{Address}}</textarea>
                                     <span class="input-search-button ">
-                                        <i class="f7-icons icon-search ripple text-color-red ripple-color-red"></i>
+                                        <i class="f7-icons icon-search ripple text-color-custom2 ripple-color-orange"></i>
                                     </span>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                         <div class="item-inner">
                             <div class="item-title text-transform-uppercase tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG046}}">{{@global.LANGUAGE.COM_MSG051}} <span class="badge color-lightblue">?</span></div>
                             <div class="item-after">
-                                <label class="toggle toggle-ignore-between color-green">
+                                <label class="toggle toggle-ignore-between color-custom2">
                                     <input type="checkbox" name="IgnoreBetweenState" {{#if IgnoreBetweenState}}checked="checked"{{/if}}>
                                     <span class="toggle-icon"></span>
                                 </label>
@@ -186,7 +186,7 @@
                         <div class="item-inner">
                             <div class="item-title text-transform-uppercase tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG045}}">{{@global.LANGUAGE.GEOFENCES_MSG08}} <span class="badge color-lightblue">?</span></div>
                             <div class="item-after">
-                                <label class="toggle toggle-ignore-between color-green">
+                                <label class="toggle toggle-ignore-between color-custom2">
                                     <input type="checkbox" name="ShareState" {{#if ShareState}}checked="checked"{{/if}}>
                                     <span class="toggle-icon"></span>
                                 </label>
@@ -197,7 +197,7 @@
                         <div class="item-inner">
                             <div class="item-title text-transform-uppercase tooltip-init" data-tooltip="{{@global.LANGUAGE.PROMPT_MSG047}}">{{@global.LANGUAGE.GEOFENCES_MSG09}} <span class="badge color-lightblue">?</span></div>
                             <div class="item-after">
-                                <label class="toggle toggle-ignore-between color-green">
+                                <label class="toggle toggle-ignore-between color-custom2">
                                     <input type="checkbox" name="ActiveState" {{#if ActiveState}}checked="checked"{{/if}}>
                                     <span class="toggle-icon"></span>
                                 </label>
@@ -365,7 +365,7 @@
                     self.DaysOfWeekSelect = self.$app.smartSelect.create({
                         el: daysOfWeekEl,
                         openIn: 'sheet',
-                        formColorTheme: 'green',
+                        formColorTheme: 'custom2',
                         sheetPush: 'true'
                     });
                 });
@@ -625,13 +625,13 @@
                     self.AlarmTypesSelect = self.$app.smartSelect.create({
                         el: AlarmTypesSSEl,
                         openIn: 'sheet',
-                        formColorTheme: 'green',
+                        formColorTheme: 'custom2',
                         sheetPush: true
                     });
                     self.AssetListSelect = self.$app.smartSelect.create({
                         el: AssetListSSEl,
                         openIn: 'popup',
-                        formColorTheme: 'green',
+                        formColorTheme: 'custom2',
                         popupPush: true,
                         searchbar: true,
                         searchbarPlaceholder: LANGUAGE.COM_MSG002,
@@ -647,7 +647,7 @@
                         el: NotifyListSSEl,
                         openIn: 'popup',
                         popupPush: true,
-                        formColorTheme: 'green',
+                        formColorTheme: 'custom2',
                         searchbar: true,
                         searchbarPlaceholder: LANGUAGE.COM_MSG002,
                         appendSearchbarNotFound: LANGUAGE.PROMPT_MSG000,
